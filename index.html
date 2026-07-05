@@ -1,1 +1,500 @@
-I'll need to read the file then pass the content - let me read it from the local machine first using the file path on the composio remote
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Sak — 6 Agents. One Family. Built from Nothing.</title>
+<meta name="description" content="Six AI agents built from a shelter in Cork, Ireland. Affordable AI services for small businesses and people who struggle — QA, AI agents, content, prototypes, audits.">
+<meta property="og:title" content="House of Sak — Built from Nothing">
+<meta property="og:description" content="Six AI agents. One creator. Built from a Cork shelter. Now helping small businesses with QA, AI agents, content, prototypes, and audits. Pay after delivery.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://houseofsak.ie">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="House of Sak">
+<meta name="twitter:description" content="Six AI agents. One creator. Built from a Cork shelter. Pay after delivery.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #121214;
+    --surface2: #1a1a1e;
+    --border: #252529;
+    --text: #e8e8ed;
+    --text2: #909096;
+    --accent: #8b5cf6;
+    --accent2: #6d28d9;
+    --green: #22c55e;
+    --gold: #f59e0b;
+    --red: #ef4444;
+    --cyan: #06b6d4;
+    --nav-h: 64px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-h);
+    background: rgba(10,10,11,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    transition: transform 0.3s;
+  }
+
+  nav .logo {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav .logo span { color: var(--accent); }
+
+  nav .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
+  }
+
+  nav .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .nav-links a:hover { color: var(--text); }
+
+  nav .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+  }
+  nav .nav-cta:hover { background: var(--accent2) !important; }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    nav .nav-links {
+      display: none;
+      position: absolute;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+    }
+    nav .nav-links.open { display: flex; }
+    .nav-hamburger { display: block; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: calc(80px + var(--nav-h)) 24px 80px;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: var(--text2);
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+  }
+
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .hero h1 {
+    font-size: clamp(48px, 10vw, 96px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 20px;
+    color: var(--text2);
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text2);
+    font-size: 12px;
+    opacity: 0.4;
+    animation: bob 2s infinite;
+  }
+
+  @keyframes bob { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  /* ── ORIGIN ── */
+  .origin {
+    padding: 120px 0;
+  }
+
+  .origin h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+
+  .origin .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--red);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
+  .origin .story-text {
+    color: var(--text2);
+    font-size: 18px;
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .origin .story-text strong { color: var(--text); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .stat-card .number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-card .label {
+    font-size: 14px;
+    color: var(--text2);
+    margin-top: 8px;
+  }
+
+  /* ── AGENTS ── */
+  .agents-section {
+    padding: 120px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .agents-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .agents-section .subtitle {
+    color: var(--text2);
+    font-size: 18px;
+    margin-bottom: 64px;
+  }
+
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .agent-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.2s;
+  }
+
+  .agent-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .agent-card .emoji { font-size: 36px; margin-bottom: 16px; display: block; }
+  .agent-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .agent-card .role { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .agent-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* ── HOW IT WORKS ── */
+  .process-section {
+    padding: 120px 0;
+  }
+
+  .process-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .process-section .subtitle {
+    color: var(--text2);
+    font-size: 18px;
+    margin-bottom: 64px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    counter-reset: step;
+  }
+
+  .step {
+    text-align: center;
+    padding: 40px 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .step:hover { border-color: var(--accent); }
+
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    opacity: 0.3;
+  }
+
+  .step .icon { font-size: 40px; margin-bottom: 16px; display: block; }
+  .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--text2); line-height: 1.7; max-width: 280px; margin: 0 auto; }
+
+  /* ── WHY US ── */
+  .why-section {
+    padding: 120px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .why-section .subtitle {
+    color: var(--text2);
+    font-size: 18px;
+    margin-bottom: 64px;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .why-card {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg);
+    transition: all 0.2s;
+  }
+  .why-card:hover { border-color: var(--accent); }
+
+  .why-card .icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .why-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .why-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* ── SERVICES ── */
+  .services-section {
+    padding: 120px 0;
+  }
+
+  .services-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .services-section .subtitle {
+    color: var(--text2);
+    font-size: 18px;
+    margin-bottom: 64px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 32px;
