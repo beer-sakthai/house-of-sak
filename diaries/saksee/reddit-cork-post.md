@@ -23,5 +23,3 @@ If you're struggling in Cork — Pieta House, the Samaritans, the Cork Mental He
 And if anyone wants to talk tech, AI, or just grab a coffee — I'm here. Building from the bottom.
 
 — Beer
-
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum

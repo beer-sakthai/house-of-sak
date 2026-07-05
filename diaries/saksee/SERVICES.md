@@ -1,119 +1,127 @@
 # 🏠 House of Sak — Service Packages
 
 **Date:** July 4, 2026
-**Status:** ✅ Ready for clients
-
-Each package is delivered by one or more of the 6 Sak agents.
-All prices are starting ranges — final quote depends on scope.
+**Status:** ✅ Ready for quoting
 
 ---
 
-## Package 1: QA Shield 🛡️
+## 1. QA Shield 🛡️
 
-**Powered by:** SakSee (Playwright, testing automation)
+**What it is:** Automated and manual quality assurance for small SaaS products.
+**Starting price:** €200–500
+**Best for:** Pre-seed to Series A startups without dedicated QA.
 
-| Detail | What's Included |
-|--------|-----------------|
-| **What you get** | Automated test suite for your web app — catch bugs before users do |
-| **Scope** | Up to 10 core user flows tested (login, checkout, search, forms, etc.) |
-| **Delivery** | Test suite code + HTML report + bug list |
-| **Timeline** | 3–7 business days |
-| **Price** | €200–€500 |
-| **Not included** | Load testing, security penetration testing, mobile app testing |
-| **Retainer** | €50–€150/month for ongoing test maintenance + new flow coverage |
+### Scope (Included)
+- Exploratory testing of core user flows
+- Automated Playwright test suite (critical paths)
+- Bug report with severity ratings
+- 1 round of regression testing after fixes
 
----
+### Scope (Excluded)
+- Performance/load testing
+- Security penetration testing
+- Ongoing test maintenance beyond 30 days
 
-## Package 2: Agent Builder 🤖 
-
-**Powered by:** SakThai (AI/ML) + SakKing (infrastructure)
-
-| Detail | What's Included |
-|--------|-----------------|
-| **What you get** | Custom AI assistant for your business — trained on YOUR data |
-| **Scope** | Single-use-case agent (e.g., customer support FAQ, lead qualification, document Q&A) |
-| **Delivery** | Working agent + deployment instructions + 30-min handover call |
-| **Timeline** | 5–14 business days |
-| **Price** | €300–€800 |
-| **Not included** | Multi-agent systems, real-time voice, custom model training from scratch |
-| **Retainer** | €80–€200/month for hosting, monitoring, and improvements |
+### Deliverables
+- Test coverage report
+- Bug list (ranked by severity)
+- Reusable test suite (GitHub repo)
 
 ---
 
-## Package 3: Social Pulse 📱
+## 2. Agent Builder 🤖
 
-**Powered by:** SakSit (content, social media)
+**What it is:** Custom AI agents designed for specific business workflows.
+**Starting price:** €300–800
+**Best for:** Freelancers and small teams needing automation.
 
-| Detail | What's Included |
-|--------|-----------------|
-| **What you get** | Done-for-you social media content — posts, captions, hashtags, scheduling |
-| **Scope** | 4 posts/week on 1 platform (Instagram or LinkedIn or X) |
-| **Delivery** | Content calendar + ready-to-post graphics + captions |
-| **Timeline** | Weekly retainer |
-| **Price** | €100–€300/month |
-| **Not included** | Video production, paid ads, community management replies |
-| **Minimum commitment** | 1 month |
+### Scope (Included)
+- Workflow analysis and agent design
+- Agent build and deployment
+- Integration with existing tools (Slack, email, CRMs)
+- 30-day support and iteration
 
----
+### Scope (Excluded)
+- Complex multi-agent orchestration
+- Custom model fine-tuning beyond base configurations
+- Infrastructure hosting (agents run on existing accounts)
 
-## Package 4: Fast Prototype ⚡
-
-**Powered by:** SakTan (creative, full-stack)
-
-| Detail | What's Included |
-|--------|-----------------|
-| **What you get** | Working prototype of your idea — landing page, web tool, MVP |
-| **Scope** | Single-page web app or 3-page static site |
-| **Delivery** | Deployed URL + source code + 1 revision round |
-| **Timeline** | 2–5 business days |
-| **Price** | €150–€400 |
-| **Not included** | Backend APIs, database setup, custom domain configuration |
-| **Retainer** | €50–€100/month for hosting + updates |
+### Deliverables
+- Functional agent
+- Usage documentation
+- 30-min walkthrough call
 
 ---
 
-## Package 5: Trust Check ✅
+## 3. Social Pulse 📊
 
-**Powered by:** SakJules (verification, auditing)
+**What it is:** Content scheduling, cross-platform posting, and basic analytics.
+**Starting price:** €100–300/mo
+**Best for:** Content creators, local businesses, founders.
 
-| Detail | What's Included |
-|--------|-----------------|
-| **What you get** | Independent audit of your system — security, reliability, code quality |
-| **Scope** | Review of 1 web app or codebase (up to 10 pages / 5K LOC) |
-| **Delivery** | Audit report with findings + fix recommendations |
-| **Timeline** | 1–3 business days |
-| **Price** | €150–€300 |
-| **Not included** | Full penetration testing, SOC2 compliance audit, performance benchmarking |
-| **One-off or recurring** | One-off, or €100/month quarterly check-ups |
+### Scope (Included)
+- 10–20 posts/month across 2 platforms
+- Cross-platform scheduling
+- Basic engagement analytics
+- Caption and hashtag optimization
 
----
+### Scope (Excluded)
+- Content creation (photos, videos, graphic design)
+- Community management (replying to comments/DMs)
+- Paid ad management
 
-## Bundle: Full House 🏠
-
-Get all 5 services at a discount
-
-| Service | Standalone Price | Bundle Price |
-|---------|-----------------|--------------|
-| QA Shield | €200–€500 | |
-| Agent Builder | €300–€800 | |
-| Social Pulse | €100–€300/month | |
-| Fast Prototype | €150–€400 | |
-| Trust Check | €150–€300 | |
-| **Bundle total** | **€900–€2,300** | **€600–€1,600** (save ~30%) |
+### Deliverables
+- Monthly content calendar
+- Analytics report
+- Scheduled posts
 
 ---
 
-## How to Start
+## 4. Fast Prototype ⚡
 
-1. Pick a package
-2. Send a DM with what you need
-3. I'll scope it free and give you a firm quote within 24h
-4. Pay after delivery — no upfront payment for first-time clients
+**What it is:** A 48-hour MVP to test an idea before committing resources.
+**Starting price:** €150–400
+**Best for:** Indie hackers, founders validating concepts.
+
+### Scope (Included)
+- One core user flow
+- Minimal UI (functional, not designed)
+- Deployment to free/cheap hosting
+- Quick demo video
+
+### Scope (Excluded)
+- Multiple flows or features
+- Production-ready security or scalability
+- Ongoing maintenance
+
+### Deliverables
+- Live prototype URL
+- Demo video
+- Brief technical notes
 
 ---
 
-*"Built from a shelter in Cork. Powered by 6 AI agents. Priced for people who struggle."*
+## 5. Trust Check 🔍
 
-— The House of Sak
+**What it is:** Security, reliability, and test coverage audit for existing systems.
+**Starting price:** €150–300
+**Best for:** Startups pre-fundraising or before product launch.
 
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
+### Scope (Included)
+- Dependency vulnerability scan
+- Test coverage assessment
+- Reliability audit (error handling, retries, timeouts)
+- Report with prioritized fix recommendations
+
+### Scope (Excluded)
+- Fix implementation
+- Ongoing security monitoring
+- Penetration testing
+
+### Deliverables
+- Audit report
+- Prioritized fix list
+
+---
+
+*All prices negotiable. Free tier available for social impact orgs and those who genuinely can't pay.*

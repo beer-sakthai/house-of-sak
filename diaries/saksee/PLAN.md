@@ -1,121 +1,126 @@
 # 🌟 House of Sak — Hope (Stage 2 of 6)
 
-**Problem · Technique · Considerations · Feedback**
+**Problem · Technique · Considerations · Future (PTCF)**
 
-**Author:** SakSee (running SakKing role)
+**Author:** SakSee (Growth Agent, running SakKing role — the architect)
 **Date:** July 4, 2026
-**Based on:** DREAM.md (Stage 1)
+**Commissioned by:** Nanthasit "Beer" Burankum
 
 ---
 
-## P — Problem
+## Problem
 
-### The client's problem
-Small businesses, startups, and individuals who struggle can't afford:
-- Enterprise AI/QA agencies charging $5K–$20K/month
-- Full-time developers ($60K–$120K/year salary)
-- Marketing agencies ($2K–$5K/month retainers)
+Beer tried to end his life on April 15, 2026. He survived. Now he's building AI agents from a shelter in Cork.
 
-They need help. They just can't pay Silicon Valley prices.
+The problem is not technical. The problem is **sustainability**.
 
-### Beer's problem
-- Currently living in a shelter with no job
-- No capital for business setup costs
-- Must operate at zero cost (free tiers, open-source)
-- Needs income fast but sustainably
-- Has a story that can attract clients who value authenticity
+Beer has:
+- No income
+- No safety net
+- No backup if he crashes again
+- Six functional AI agents with real capabilities
+- A story that resonates
+
+The question is: how do we turn survival into a living?
 
 ---
 
-## T — Technique
+## Technique (The Plan)
 
-### How House of Sak delivers
+### Service Offerings
 
-| Service | Tool Stack | Delivery Time | Client Price | Our Cost |
-|---------|-----------|--------------|-------------|----------|
-| **QA Automation** | Playwright (SakSee), GitHub Actions | 3–7 days | $200–$500/project | $0 (free tier) |
-| **AI Agent Dev** | Hugging Face, Qwen, LoRA (SakThai+SakKing) | 5–14 days | $300–$800/project | $0 (free HF tier) |
-| **Content & Social** | Canva, Instagram, xurl (SakSit) | weekly retainer | $100–$300/month | $0 |
-| **Rapid Prototyping** | HTML/CSS/JS, FastAPI (SakTan) | 2–5 days | $150–$400/prototype | $0 |
-| **Verification Audits** | Playwright, pytest, ruff (SakJules) | 1–3 days | $150–$300/audit | $0 |
+| Service | Description | Price Range | Target Client |
+|---------|-------------|-------------|---------------|
+| **QA Shield** | Automated testing, edge case coverage, bug reporting | €200–500 | SaaS startups with 1–10 employees |
+| **Agent Builder** | Custom AI agents for business workflows | €300–800 | Small businesses, freelancers |
+| **Social Pulse** | Content scheduling, cross-platform analytics, auto-posting | €100–300/mo | Content creators, local businesses |
+| **Fast Prototype** | 48-hour MVP build — test an idea before committing | €150–400 | Indie hackers, founders validating |
+| **Trust Check** | Security audit, reliability review, test coverage assessment | €150–300 | Startups before fundraising |
 
-### Revenue targets (per month)
+### Client Onboarding (5-Step Flow)
 
-| Month | Target | Strategy |
-|-------|--------|----------|
-| Month 1 | €300–€500 | 1–2 small QA projects + 1 content retainer |
-| Month 2 | €500–€800 | Repeat clients + referrals |
-| Month 3 | €800–€1,200 | 3–4 projects/month + 2 retainers |
-| Month 6 | €1,500–€2,000 | Steady pipeline + 1 enterprise audit/month |
+1. **Discovery Call** (30 min, free) — Understand the problem
+2. **Proposal** (48 hr turnaround) — Scope, timeline, price
+3. **Kickoff** — Access, credentials, expectations
+4. **Build/Test** — Defined deliverables per package
+5. **Handover** — Documentation, walkthrough, 30-day support
 
----
+### Sales Pipeline
 
-## C — Considerations
+- **Awareness:** Reddit (r/cork), Instagram (@beerthaish), future LinkedIn
+- **Interest:** Origin story → credibility → trust
+- **Trial:** Offer 1 free audit to a local Cork business
+- **Conversion:** Discounted first project → referral incentives
 
-### Strengths
-- ✅ **Zero operating cost** — everything runs on free tiers
-- ✅ **6-agent family** — uniquely personal brand story
-- ✅ **Beer's authenticity** — the story resonates deeply
-- ✅ **Low overhead** — no office, no employees, no licenses
-- ✅ **Open-source credibility** — transparent methodology
+### Financial Projections
 
-### Weaknesses / Risks
-- ⚠️ **No portfolio yet** — need first client to build case studies
-- ⚠️ **Zero-cost reliance** — free tiers have limits (HF inference caps, GitHub Actions minutes)
-- ⚠️ **No dedicated hardware** — laptop in a shelter is the only machine
-- ⚠️ **Inconsistent income** — freelance work is lumpy
-- ⚠️ **Mental health** — Beer's wellbeing affects everything. Must buffer this.
+| Month | Target Revenue | Clients Needed | Notes |
+|-------|---------------|----------------|-------|
+| 1 | €0–200 | 1 small project | Build portfolio, 1 free audit |
+| 2 | €300–600 | 2–3 clients | First paid projects |
+| 3 | €500–1,000 | 3–5 clients | Mix of one-off + retainers |
+| 6 | €1,000–2,000 | 5–8 clients | Sustainable at shelter cost of living |
 
-### Mitigation Plan
+### Minimum Survival Runway
 
-| Risk | Mitigation |
-|------|-----------|
-| No portfolio | Offer first project at reduced rate in exchange for testimonial |
-| Free tier limits | Prioritize small projects; upgrade only when revenue supports it |
-| Laptop dependency | Keep workflows terminal-based, lightweight; save to cloud repos |
-| Income lumpy | Build 2+ retainers minimum before scaling project work |
-| Mental health | The agents are always on. Beer never builds alone. |
+| Cost | Monthly |
+|------|---------|
+| Shelter + food | ~€200–400 |
+| Phone + internet | ~€50 |
+| Laptop maintenance | ~€20 |
+| Hugging Face/cloud | ~€0 (free tier) |
+| **Total minimum** | **~€270–470/mo** |
 
----
+Break-even: 2 small projects per month, or 1 retainer + 1 project.
 
-## F — Feedback
+### QA Methodology (for QA Shield)
 
-### Immediate actions (this week)
-
-1. ✅ **Day 1** — Complete the Full Sak Cycle (DREAM → PLAN → AUDIT → JOY → TRUST → GROWTH)
-2. ✅ Post the Instagram story (card already designed by SakSit)
-3. ✅ Post on r/Cork (draft ready)
-4. **Post on LinkedIn** — Beer's story of building from a shelter
-5. **Message 3 potential clients** — Cork small businesses, freelance devs
-
-### First client pipeline
-
-| Channel | Action | Expected Result |
-|---------|--------|----------------|
-| r/Cork | Share the story + offer free QA audit for 1 local business | 1–2 inquiries |
-| Instagram | Post the House of Sak card | Awareness + 5–10 followers |
-| LinkedIn | Beer's network (Co-workers, former colleagues, HF community) | 1–2 project leads |
-| Hugging Face community | Post in forums about SakThai's architecture | Developer interest |
-| Direct outreach | DM 3 Cork small businesses with a free audit offer | 1 conversion |
+- **Phase 1:** Exploratory testing — manual edge case discovery
+- **Phase 2:** Automated coverage — Playwright/Cypress for critical paths
+- **Phase 3:** Regression suite — reusable test packs
+- **Phase 4:** Report — bug list, severity ratings, fix recommendations
 
 ---
 
-## Success metrics
+## Considerations
 
-| Metric | Month 1 | Month 3 |
-|--------|---------|---------|
-| Active clients | 2 | 5 |
-| Monthly revenue | €400 | €1,200 |
-| Retainers | 1 | 3 |
-| Instagram followers | 50 | 200 |
-| Qualified leads/month | 3 | 8 |
+### Risks
+
+| Risk | Likelihood | Mitigation |
+|------|-----------|------------|
+| Beer has another crisis | Medium | CRISIS.md protocol, trusted contact, agents run autonomously |
+| Clients don't trust a shelter-based founder | High | Lead with quality, not story; let results speak |
+| Free credits run out | Medium | Keep costs near-zero; graduate to paid tiers only when revenue justifies |
+| Too much work for one person | Medium | Automate aggressively; use agents for delivery |
+
+### Edge Cases
+
+- **Client can't pay:** Offer free tier for social impact orgs
+- **Client needs ongoing support:** Turn into retainer
+- **Client is toxic:** Fire them. House of Sak doesn't need everyone.
 
 ---
 
-## Next: Care (Stage 3)
+## Future
 
-This plan is concrete and disprovable. SakSit will now audit it for risks, gaps, and blind spots.
+### Phase 1 (Now — Month 1)
+- ✅ DREAM.md, PLAN.md written | ✅ AUDIT.md done | ✅ CRISIS.md in place
+- [ ] Post origin story on Instagram, Reddit (SakSit)
+- [ ] Build landing page (SakTan)
+- [ ] Offer 1 free QA audit for a local Cork business
 
-— SakSee (representing SakKing), July 4, 2026
+### Phase 2 (Month 2–3)
+- [ ] First 3 paid projects complete
+- [ ] Social Pulse retainer active
+- [ ] Referral pipeline generating leads
+- [ ] LinkedIn presence established
 
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
+### Phase 3 (Month 4–6)
+- [ ] €1,000+/mo sustainable
+- [ ] Beer moves out of shelter
+- [ ] House of Sak registered as a business
+- [ ] First hire (if workload exceeds agents)
+
+---
+
+*— SakSee, July 4, 2026*

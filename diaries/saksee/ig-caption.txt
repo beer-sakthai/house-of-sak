@@ -30,5 +30,3 @@ Caption structure:
 - CTA = "If you're in Cork and struggling..."
 - Location tag: Cork, Ireland
 - Alt text: Dark minimal card with text "I tried to end everything — April 15, 2026 — Three days in ICU, three weeks in hospital, six weeks later building AI from a shelter in Cork"
-
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum

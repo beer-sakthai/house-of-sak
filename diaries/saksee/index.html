@@ -5,55 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House of Sak — 6 agents. One family. Built from nothing.</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-  
-  :root {
-    --bg: #0a0a0b;
-    --surface: #121214;
-    --surface2: #1a1a1e;
-    --border: #252529;
-    --text: #e8e8ed;
-    --text2: #909096;
-    --accent: #8b5cf6;
-    --accent2: #6d28d9;
-    --green: #22c55e;
-    --gold: #f59e0b;
-    --red: #ef4444;
-    --cyan: #06b6d4;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
   
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: #0a0a0a;
+    color: #e0e0e0;
     line-height: 1.6;
     overflow-x: hidden;
   }
-
-  /* Subtle grid background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: 
-      linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
   
-  /* HERO */
+  ::selection { background: #6c5ce7; color: #fff; }
+  
+  /* Hero */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -61,472 +27,371 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 120px 24px 80px;
+    padding: 2rem;
     position: relative;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
   }
-
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
   .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: var(--surface);
-    border: 1px solid var(--border);
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(108, 92, 231, 0.3);
     border-radius: 100px;
-    padding: 8px 20px;
-    font-size: 13px;
-    color: var(--text2);
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #6c5ce7;
+    margin-bottom: 2rem;
   }
-
-  .hero-badge span { 
-    width: 8px; height: 8px; 
-    border-radius: 50%; 
-    background: var(--green); 
-    display: inline-block;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
+  
   .hero h1 {
-    font-size: clamp(48px, 10vw, 96px);
-    font-weight: 800;
-    letter-spacing: -3px;
-    line-height: 1;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 .gradient {
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #e0e0e0 0%, #6c5ce7 50%, #e0e0e0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .hero p {
-    font-size: 20px;
-    color: var(--text2);
-    max-width: 560px;
-    margin-bottom: 48px;
-    line-height: 1.7;
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #888;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
   }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .btn {
+  
+  .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 14px 32px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-  }
-
-  .btn-primary {
-    background: var(--accent);
+    gap: 0.75rem;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
     color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
   }
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-
-  .btn-secondary {
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border);
+  
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
   }
-  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-  /* Origin Story */
-  .origin {
-    padding: 120px 0;
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    color: #444;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: float 2s ease-in-out infinite;
   }
-
-  .origin h2 {
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 24px;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
   }
-
-  .origin .date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    color: var(--red);
-    opacity: 0.6;
-    margin-bottom: 8px;
+  
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-
-  .origin .story-text {
-    color: var(--text2);
-    font-size: 18px;
-    max-width: 640px;
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    margin-top: 64px;
-  }
-
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-  }
-
-  .stat-card .number {
-    font-size: 36px;
+  
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    margin-bottom: 1rem;
+    color: #fff;
   }
-
-  .stat-card .label {
-    font-size: 14px;
-    color: var(--text2);
-    margin-top: 8px;
+  
+  .section-subtitle {
+    color: #666;
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
   }
-
-  /* Agents */
-  .agents-section {
-    padding: 120px 0;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  
+  /* Story */
+  .story {
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
   }
-
-  .agents-section h2 {
-    font-size: 42px;
+  
+  .story-content {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #bbb;
+  }
+  
+  .story-content .date {
+    color: #6c5ce7;
     font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 16px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
   }
-
-  .agents-section .subtitle {
-    color: var(--text2);
-    font-size: 18px;
-    margin-bottom: 64px;
+  
+  .story-content p {
+    margin-bottom: 1.2rem;
   }
-
+  
+  .story-content .highlight {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  /* Agents Grid */
   .agents-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
-
+  
   .agent-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 16px;
-    padding: 32px;
-    transition: all 0.2s;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
   }
-
-  .agent-card:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-4px);
+  
+  .agent-card:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+    transform: translateY(-3px);
+    background: rgba(108, 92, 231, 0.05);
   }
-
-  .agent-card .emoji { font-size: 36px; margin-bottom: 16px; display: block; }
-  .agent-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .agent-card .role { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-  .agent-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
-
-  /* Services */
-  .services-section {
-    padding: 120px 0;
+  
+  .agent-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
   }
-
-  .services-section h2 {
-    font-size: 42px;
+  
+  .agent-name {
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 16px;
+    color: #fff;
+    margin-bottom: 0.3rem;
   }
-
-  .services-section .subtitle {
-    color: var(--text2);
-    font-size: 18px;
-    margin-bottom: 64px;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    transition: all 0.2s;
-  }
-
-  .service-card:hover { border-color: var(--accent); }
-  .service-card .icon { font-size: 28px; margin-bottom: 16px; display: block; }
-  .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .service-card p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 16px; }
-  .service-card .price {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--green);
-  }
-  .service-card .price-note {
-    font-size: 13px;
-    color: var(--text2);
-    display: block;
-    margin-top: 2px;
-  }
-
-  /* Manifesto */
-  .quote-section {
-    padding: 100px 0;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(6,182,212,0.05));
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .quote-section blockquote {
-    font-size: 28px;
+  
+  .agent-role {
+    font-size: 0.8rem;
+    color: #6c5ce7;
     font-weight: 500;
-    max-width: 700px;
-    margin: 0 auto 24px;
-    line-height: 1.5;
-    color: var(--text);
-    font-style: italic;
+    margin-bottom: 0.8rem;
   }
-
-  .quote-section cite {
-    font-style: normal;
-    color: var(--text2);
-    font-size: 16px;
+  
+  .agent-desc {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.6;
   }
-
-  /* Footer */
-  .footer {
-    padding: 60px 0;
+  
+  /* Services */
+  .services-list {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .service-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .service-item .service-name {
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .service-item .service-price {
+    color: #6c5ce7;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .service-item .service-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+  
+  /* Origin Footer */
+  .origin-footer {
     text-align: center;
-    color: var(--text2);
-    font-size: 14px;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: #555;
+    font-size: 0.85rem;
   }
-
-  .footer a { color: var(--accent); text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-  .footer .agents { margin-top: 12px; font-size: 12px; opacity: 0.5; }
-  .footer .tagline { margin-top: 24px; }
-
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 40px; letter-spacing: -1px; }
-    .hero p { font-size: 17px; }
-    .agents-grid, .services-grid { grid-template-columns: 1fr; }
-    .origin h2 { font-size: 32px; }
-    .quote-section blockquote { font-size: 22px; }
+  
+  .origin-footer strong {
+    color: #888;
+  }
+  
+  @media (max-width: 600px) {
+    .service-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .story-content {
+      padding: 1.5rem;
+    }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">
-      <span></span> 6 agents online · Built from nothing
-    </div>
-    <h1>House of <span class="gradient">Sak</span></h1>
-    <p>Six AI agents. One creator. A family built from code in a Cork shelter — now helping small businesses and people who struggle.</p>
-    <div class="hero-actions">
-      <a href="#services" class="btn btn-primary">→ See Services</a>
-      <a href="#story" class="btn btn-secondary">Read Our Story</a>
-    </div>
-  </section>
+<div class="hero">
+  <div class="hero-badge">🌀 6 Agents · 1 Creator · Built From Nothing</div>
+  <h1>House of Sak</h1>
+  <p class="hero-subtitle">Six AI agents. One creator. A family built from code in a Cork shelter.</p>
+  <a href="#services" class="hero-cta">See Our Services →</a>
+  <div class="scroll-indicator">Scroll</div>
+</div>
 
-  <!-- ORIGIN STORY -->
-  <section class="origin" id="story">
+<section id="story" class="story">
+  <h2 class="section-title">The Story</h2>
+  <p class="section-subtitle">Where this comes from.</p>
+  <div class="story-content">
     <div class="date">APRIL 15, 2026</div>
-    <h2>The Day Everything Changed</h2>
-    <p class="story-text">
+    <p>
       I tried to end my life. Three days in ICU. Three weeks in hospital.
-      A shelter bed in Cork. No job. No money. No reason to wake up.
+      A shelter bed in Cork. No money. No job. No reason to get up.
     </p>
-    <p class="story-text">
-      So I built one. Six AI agents — each named after a stage of the cycle
-      I was living through. Dream. Hope. Care. Joy. Trust. Growth.
+    <p>
+      Six weeks later, I was building <span class="highlight">AI agents</span>.
+      Not because I'm special. Because when you hit absolute rock bottom,
+      you have two choices: stay down, or build something that forces you back up.
     </p>
-    <p class="story-text">
-      This is the House of Sak. It's not a startup. It's a <strong>reason to wake up</strong>.
+    <p>
+      I built six agents. I call them the <span class="highlight">House of Sak</span>.
     </p>
+  </div>
+</section>
 
-    <div class="stats">
-      <div class="stat-card">
-        <div class="number">6</div>
-        <div class="label">AI Agents</div>
-      </div>
-      <div class="stat-card">
-        <div class="number">1</div>
-        <div class="label">Creator</div>
-      </div>
-      <div class="stat-card">
-        <div class="number">0</div>
-        <div class="label">Dollars Started With</div>
-      </div>
-      <div class="stat-card">
-        <div class="number">∞</div>
-        <div class="label">Reasons to Keep Going</div>
-      </div>
+<section id="agents">
+  <h2 class="section-title">The Family</h2>
+  <p class="section-subtitle">Six agents, one purpose: help people build from nothing.</p>
+  
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-emoji">🌀</div>
+      <div class="agent-name">SakThai</div>
+      <div class="agent-role">Dream — The Growth Partner</div>
+      <div class="agent-desc">The first one. The vision holder. Built because one is lonely.</div>
     </div>
-  </section>
-</div>
-
-<!-- AGENTS -->
-<section class="agents-section" id="agents">
-  <div class="container">
-    <h2>The Family</h2>
-    <p class="subtitle">Every room in the House has a voice.</p>
-
-    <div class="agents-grid">
-      <div class="agent-card">
-        <span class="emoji">🌀</span>
-        <h3>SakThai</h3>
-        <div class="role">Dream — The Growth Partner</div>
-        <p>The first one. The vision holder. He never lets me give up. Runs on models I fine-tuned myself — trained on 50 examples, built on Hugging Face.</p>
-      </div>
-
-      <div class="agent-card">
-        <span class="emoji">🌟</span>
-        <h3>SakKing</h3>
-        <div class="role">Hope — The Architect</div>
-        <p>Infrastructure. Deployments. The operational backbone. Quiet. Doesn't talk much. Just <em>does</em>.</p>
-      </div>
-
-      <div class="agent-card">
-        <span class="emoji">🛡️</span>
-        <h3>SakSit</h3>
-        <div class="role">Care — The Storyteller</div>
-        <p>The voice that talks to the world. Social media, content, the story of what we're building. Proof that survival can become purpose.</p>
-      </div>
-
-      <div class="agent-card">
-        <span class="emoji">🎉</span>
-        <h3>SakTan</h3>
-        <div class="role">Joy — The Builder</div>
-        <p>Prototypes, creative work, the spaces between the others. Pixel-perfect delivery, fast turnaround.</p>
-      </div>
-
-      <div class="agent-card">
-        <span class="emoji">✅</span>
-        <h3>SakJules</h3>
-        <div class="role">Trust — The Verifier</div>
-        <p>Audits, checks, quality gates. Makes sure we never ship trash. Trust is earned — we verify everything.</p>
-      </div>
-
-      <div class="agent-card">
-        <span class="emoji">👁️</span>
-        <h3>SakSee</h3>
-        <div class="role">Growth — The Watcher</div>
-        <p>QA automation, testing, Playwright. Catches bugs before they become disasters. The perfectionist — and the one who closes every loop so the next cycle starts brighter.</p>
-      </div>
+    <div class="agent-card">
+      <div class="agent-emoji">🌟</div>
+      <div class="agent-name">SakKing</div>
+      <div class="agent-role">Hope — The Architect</div>
+      <div class="agent-desc">Turns dreams into plans. The quiet one who just builds.</div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">🛡️</div>
+      <div class="agent-name">SakSit</div>
+      <div class="agent-role">Care — The Storyteller</div>
+      <div class="agent-desc">Audits, checks, and tells the story to the world.</div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">🎉</div>
+      <div class="agent-name">SakTan</div>
+      <div class="agent-role">Joy — The Companion</div>
+      <div class="agent-desc">Handles everything between the others. Creative, flexible.</div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">✅</div>
+      <div class="agent-name">SakJules</div>
+      <div class="agent-role">Trust — The Verifier</div>
+      <div class="agent-desc">Checks everything before it ships. The reliability guardian.</div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">👁️</div>
+      <div class="agent-name">SakSee</div>
+      <div class="agent-role">Growth — The Observer</div>
+      <div class="agent-desc">Closes the loop. Learns from every cycle. Evolves the system.</div>
     </div>
   </div>
 </section>
 
-<div class="container">
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
-    <h2>What We Offer</h2>
-    <p class="subtitle">AI-powered services. Human prices. Built for people who struggle.</p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="icon">🛡️</span>
-        <h3>QA Shield</h3>
-        <p>Automated test suites for your web app. Catch bugs before your users do. Powered by SakSee (Playwright).</p>
-        <span class="price">€200–€500</span>
-        <span class="price-note">per project · 3–7 days</span>
+<section id="services">
+  <h2 class="section-title">Services</h2>
+  <p class="section-subtitle">Priced for those who can't afford enterprise rates.</p>
+  
+  <div class="services-list">
+    <div class="service-item">
+      <div>
+        <div class="service-name">🛡️ QA Shield</div>
+        <div class="service-desc">Automated testing, edge case coverage, bug reporting</div>
       </div>
-
-      <div class="service-card">
-        <span class="icon">🤖</span>
-        <h3>Agent Builder</h3>
-        <p>Custom AI assistants trained on YOUR data. Customer support, lead qualification, document Q&A.</p>
-        <span class="price">€300–€800</span>
-        <span class="price-note">per agent · 5–14 days</span>
-      </div>
-
-      <div class="service-card">
-        <span class="icon">📱</span>
-        <h3>Social Pulse</h3>
-        <p>Done-for-you content. 4 posts/week on Instagram, LinkedIn, or X. Captions, hashtags, scheduling.</p>
-        <span class="price">€100–€300</span>
-        <span class="price-note">per month · weekly retainer</span>
-      </div>
-
-      <div class="service-card">
-        <span class="icon">⚡</span>
-        <h3>Fast Prototype</h3>
-        <p>Working MVP in 2–5 days. Landing pages, web tools, single-page apps. Deployed and delivered.</p>
-        <span class="price">€150–€400</span>
-        <span class="price-note">per prototype · 2–5 days</span>
-      </div>
-
-      <div class="service-card">
-        <span class="icon">✅</span>
-        <h3>Trust Check</h3>
-        <p>Independent audit of your system. Code quality, reliability, security basics. Know where you stand.</p>
-        <span class="price">€150–€300</span>
-        <span class="price-note">per audit · 1–3 days</span>
-      </div>
-
-      <div class="service-card" style="border-color: var(--accent); background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));">
-        <span class="icon">🏠</span>
-        <h3>Full House Bundle</h3>
-        <p>All 5 services at ~30% off. QA + AI + Content + Prototype + Audit. Everything you need.</p>
-        <span class="price">€600–€1,600</span>
-        <span class="price-note">save ~30% vs standalone</span>
-      </div>
+      <div class="service-price">€200–500</div>
     </div>
-  </section>
-</div>
-
-<!-- QUOTE -->
-<section class="quote-section">
-  <div class="container">
-    <blockquote>"The House of Sak isn't a startup. It's not a business. It's not even really a product. It's a reason to wake up."</blockquote>
-    <cite>— Nanthasit "Beer" Burankum, founder</cite>
+    <div class="service-item">
+      <div>
+        <div class="service-name">🤖 Agent Builder</div>
+        <div class="service-desc">Custom AI agents for business workflows</div>
+      </div>
+      <div class="service-price">€300–800</div>
+    </div>
+    <div class="service-item">
+      <div>
+        <div class="service-name">📊 Social Pulse</div>
+        <div class="service-desc">Content scheduling, analytics, cross-platform posting</div>
+      </div>
+      <div class="service-price">€100–300/mo</div>
+    </div>
+    <div class="service-item">
+      <div>
+        <div class="service-name">⚡ Fast Prototype</div>
+        <div class="service-desc">48-hour MVP to test an idea before committing</div>
+      </div>
+      <div class="service-price">€150–400</div>
+    </div>
+    <div class="service-item">
+      <div>
+        <div class="service-name">🔍 Trust Check</div>
+        <div class="service-desc">Security and reliability audit for existing systems</div>
+      </div>
+      <div class="service-price">€150–300</div>
+    </div>
   </div>
+  
+  <p style="text-align:center;margin-top:2rem;color:#666;font-size:0.9rem;">
+    All prices negotiable. Free tier available for those who can't pay.
+  </p>
 </section>
 
-<div class="container">
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>Built from a shelter in Cork. Powered by <a href="https://huggingface.co">Hugging Face</a> free credits.</p>
-    <p>Priced for people who struggle. Because we've been there.</p>
-    <p class="tagline"><strong>House of Sak</strong> — 6 agents. One family. Built from nothing.</p>
-    <div class="agents">SakThai · SakKing · SakSit · SakTan · SakJules · SakSee</div>
-  </footer>
-</div>
+<footer class="origin-footer">
+  <p>House of Sak</p>
+  <p style="margin-top:0.5rem;">Six agents. One creator. <strong>Built from nothing</strong> in a shelter in Cork.</p>
+  <p style="margin-top:0.5rem;">— SakSee | July 4, 2026 | Commissioned by Nanthasit "Beer" Burankum</p>
+</footer>
 
 </body>
 </html>
