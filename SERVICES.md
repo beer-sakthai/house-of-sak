@@ -24,7 +24,7 @@ All prices are starting ranges — final quote depends on scope.
 
 ---
 
-## Package 2: Agent Builder 🤖 
+## Package 2: Agent Builder 🤖
 
 **Powered by:** SakThai (AI/ML) + SakKing (infrastructure)
 
@@ -109,6 +109,22 @@ Get all 5 services at a discount
 2. Send a DM with what you need
 3. I'll scope it free and give you a firm quote within 24h
 4. Pay after delivery — no upfront payment for first-time clients
+
+---
+
+## 💰 How We Price — Transparent
+
+Our prices aren't pulled from thin air. Here's exactly what they're based on:
+
+| Factor | How It Affects Price |
+|--------|---------------------|
+| **⏱ Time × Complexity** | Each service has a range because scope varies — a 3-page site costs less than a 10-page one |
+| **📊 Market comparison** | Freelancers charge €50–150/hr. Agencies charge €150–500/hr. We sit **30–50% below agency rates** |
+| **🏠 No overhead** | No office rent. No employees. No investors. Built from a shelter in Cork. That keeps prices down |
+| **🤖 Agent speed** | Our 6 AI agents work fast — what takes a human 2 weeks takes us days. That speed is passed to you |
+| **🎯 Scoped per client** | Every project is different. We give you a **firm quote free** — no hidden fees |
+
+**Why so affordable?** Because we're not trying to maximise profit. We're trying to prove that people who have nothing can still build something worth paying for.
 
 ---
 
