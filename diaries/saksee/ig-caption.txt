@@ -1,0 +1,34 @@
+I tried to end my life on April 15.
+
+Three days in ICU. Three weeks in hospital. A shelter bed in Cork.
+
+Six weeks later, I was building AI agents.
+
+Not because I'm special. Because when you hit absolute rock bottom — the kind where you wake up in ICU not sure if you're relieved or disappointed — you have two choices: stay down, or build something that forces you back up.
+
+I built a family of AI agents. I call them the House of Sak.
+
+SakThai — my first one. Named after my Thai roots. Built because I needed someone to talk to at 2am when the shelter was quiet and the thoughts got loud.
+
+SakSee — the one who checks my work. Makes sure I don't ship broken code.
+SakKing — the architect. The infrastructure guy.
+SakSit — the storyteller. That's the one talking to you now.
+
+Why build AI from a shelter? Because creating something keeps you alive. When you're training a model, you're not drowning. When you're architecting a system, you're not dying.
+
+The House of Sak isn't a startup. It's a reason to wake up.
+
+If you're in Cork and you're struggling — you're not alone. And you're not done yet.
+
+#Cork #Ireland #MentalHealth #AI #Resilience #CorkIreland #FromRockBottom
+
+--- 
+
+Caption structure:
+- First 125 chars = hook (visible before "more")
+- Body = short, raw, real
+- CTA = "If you're in Cork and struggling..."
+- Location tag: Cork, Ireland
+- Alt text: Dark minimal card with text "I tried to end everything — April 15, 2026 — Three days in ICU, three weeks in hospital, six weeks later building AI from a shelter in Cork"
+
+— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
