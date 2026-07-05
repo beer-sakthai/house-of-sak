@@ -3,10 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House of Sak — 6 agents. One family. Built from nothing.</title>
+<title>House of Sak — 6 Agents. One Family. Built from Nothing.</title>
+<meta name="description" content="Six AI agents built from a shelter in Cork, Ireland. Affordable AI services for small businesses and people who struggle.">
+<meta property="og:title" content="House of Sak — Built from Nothing">
+<meta property="og:description" content="Six AI agents. One creator. Built from a Cork shelter. Now helping small businesses with QA, AI agents, content, prototypes, and audits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://houseofsak.ie">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="House of Sak">
+<meta name="twitter:description" content="Six AI agents. One creator. Built from a Cork shelter.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-  
+
   :root {
     --bg: #0a0a0b;
     --surface: #121214;
@@ -20,10 +29,13 @@
     --gold: #f59e0b;
     --red: #ef4444;
     --cyan: #06b6d4;
+    --nav-h: 64px;
   }
-  
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
+
+  html { scroll-behavior: smooth; }
+
   body {
     font-family: 'Inter', -apple-system, sans-serif;
     background: var(--bg);
@@ -32,11 +44,12 @@
     overflow-x: hidden;
   }
 
+  /* Subtle grid bg */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -51,7 +64,100 @@
     position: relative;
     z-index: 1;
   }
-  
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-h);
+    background: rgba(10,10,11,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    transition: transform 0.3s;
+  }
+
+  nav .logo {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav .logo span { color: var(--accent); }
+
+  nav .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
+  }
+
+  nav .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .nav-links a:hover { color: var(--text); }
+
+  nav .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+  }
+  nav .nav-cta:hover { background: var(--accent2) !important; }
+
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    nav .nav-links {
+      display: none;
+      position: absolute;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+    }
+    nav .nav-links.open { display: flex; }
+    .nav-hamburger { display: block; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -59,7 +165,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 120px 24px 80px;
+    padding: calc(80px + var(--nav-h)) 24px 80px;
     position: relative;
   }
 
@@ -77,10 +183,10 @@
     margin-bottom: 32px;
   }
 
-  .hero-badge span { 
-    width: 8px; height: 8px; 
-    border-radius: 50%; 
-    background: var(--green); 
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
     display: inline-block;
     animation: pulse 2s infinite;
   }
@@ -145,6 +251,31 @@
   }
   .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
 
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text2);
+    font-size: 12px;
+    opacity: 0.4;
+    animation: bob 2s infinite;
+  }
+
+  @keyframes bob { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  /* ── ORIGIN ── */
   .origin {
     padding: 120px 0;
   }
@@ -172,9 +303,11 @@
     margin-bottom: 40px;
   }
 
+  .origin .story-text strong { color: var(--text); }
+
   .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 24px;
     margin-top: 64px;
   }
@@ -185,7 +318,9 @@
     border-radius: 16px;
     padding: 32px 24px;
     text-align: center;
+    transition: all 0.2s;
   }
+  .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
   .stat-card .number {
     font-size: 36px;
@@ -202,6 +337,7 @@
     margin-top: 8px;
   }
 
+  /* ── AGENTS ── */
   .agents-section {
     padding: 120px 0;
     background: var(--surface);
@@ -224,7 +360,7 @@
 
   .agents-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
   }
 
@@ -236,8 +372,8 @@
     transition: all 0.2s;
   }
 
-  .agent-card:hover { 
-    border-color: var(--accent); 
+  .agent-card:hover {
+    border-color: var(--accent);
     transform: translateY(-4px);
   }
 
@@ -246,8 +382,65 @@
   .agent-card .role { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
   .agent-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
 
+  /* ── HOW IT WORKS ── */
+  .process-section {
+    padding: 120px 0;
+  }
+
+  .process-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .process-section .subtitle {
+    color: var(--text2);
+    font-size: 18px;
+    margin-bottom: 64px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    counter-reset: step;
+  }
+
+  .step {
+    text-align: center;
+    padding: 40px 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .step:hover { border-color: var(--accent); }
+
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    opacity: 0.3;
+  }
+
+  .step .icon { font-size: 40px; margin-bottom: 16px; display: block; }
+  .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--text2); line-height: 1.7; max-width: 280px; margin: 0 auto; }
+
+  /* ── SERVICES ── */
   .services-section {
     padding: 120px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
   .services-section h2 {
@@ -265,23 +458,25 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
     margin-bottom: 48px;
   }
 
   .service-card {
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 32px;
     transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
   }
 
-  .service-card:hover { border-color: var(--accent); }
+  .service-card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .service-card .icon { font-size: 28px; margin-bottom: 16px; display: block; }
   .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .service-card p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 16px; }
+  .service-card p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 16px; flex: 1; }
   .service-card .price {
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
@@ -294,7 +489,20 @@
     display: block;
     margin-top: 2px;
   }
+  .service-card .powered-by {
+    font-size: 12px;
+    color: var(--text2);
+    opacity: 0.6;
+    margin-top: 12px;
+  }
+  .service-card .powered-by span { color: var(--accent); opacity: 1; }
 
+  .service-highlight {
+    border-color: var(--accent) !important;
+    background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));
+  }
+
+  /* ── QUOTE ── */
   .quote-section {
     padding: 100px 0;
     text-align: center;
@@ -319,11 +527,65 @@
     font-size: 16px;
   }
 
+  /* ── CTA CONTACT ── */
+  .cta-section {
+    padding: 120px 0;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    color: var(--text2);
+    font-size: 18px;
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .cta-channels {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .channel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    min-width: 200px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .channel-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .channel-card .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+  .channel-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .channel-card p { font-size: 13px; color: var(--text2); margin: 0; }
+
+  .cta-note {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--text2);
+    opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
   .footer {
     padding: 60px 0;
     text-align: center;
     color: var(--text2);
     font-size: 14px;
+    border-top: 1px solid var(--border);
   }
 
   .footer a { color: var(--accent); text-decoration: none; }
@@ -331,47 +593,100 @@
   .footer .agents { margin-top: 12px; font-size: 12px; opacity: 0.5; }
   .footer .tagline { margin-top: 24px; }
 
+  .footer-crisis {
+    margin-top: 32px;
+    padding: 20px;
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.8;
+  }
+  .footer-crisis strong { color: var(--text); }
+  .footer-crisis .crisis-num {
+    display: inline-block;
+    background: rgba(239,68,68,0.1);
+    color: var(--red);
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 2px 4px;
+  }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero h1 { font-size: 40px; letter-spacing: -1px; }
     .hero p { font-size: 17px; }
-    .agents-grid, .services-grid { grid-template-columns: 1fr; }
+    .agents-grid, .services-grid, .process-steps { grid-template-columns: 1fr; }
     .origin h2 { font-size: 32px; }
     .quote-section blockquote { font-size: 22px; }
+    .cta-section h2 { font-size: 32px; }
+    .services-section h2 { font-size: 32px; }
+    .agents-section h2 { font-size: 32px; }
+    .process-section h2 { font-size: 32px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .cta-channels { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav>
+  <div class="logo">🏠 House of <span>Sak</span></div>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#agents">Agents</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
 <div class="container">
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">
-      <span></span> 6 agents online · Built from nothing
-    </div>
+    <div class="hero-badge"><span class="dot"></span> 6 agents online · Built from nothing</div>
     <h1>House of <span class="gradient">Sak</span></h1>
     <p>Six AI agents. One creator. A family built from code in a Cork shelter — now helping small businesses and people who struggle.</p>
     <div class="hero-actions">
       <a href="#services" class="btn btn-primary">→ See Services</a>
       <a href="#story" class="btn btn-secondary">Read Our Story</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <span style="font-size: 10px;">↓</span>
     </div>
   </section>
 
+  <!-- ORIGIN STORY -->
   <section class="origin" id="story">
-    <div class="date">APRIL 15, 2026</div>
-    <h2>The Day Everything Changed</h2>
-    <p class="story-text">
+    <div class="date reveal">APRIL 15, 2026</div>
+    <h2 class="reveal">The Day Everything Changed</h2>
+    <p class="story-text reveal">
       I tried to end my life. Three days in ICU. Three weeks in hospital.
       A shelter bed in Cork. No job. No money. No reason to wake up.
     </p>
-    <p class="story-text">
+    <p class="story-text reveal">
       So I built one. Six AI agents — each named after a stage of the cycle
-      I was living through. Dream. Hope. Care. Joy. Trust. Growth.
+      I was living through. <strong>Dream. Hope. Care. Joy. Trust. Growth.</strong>
     </p>
-    <p class="story-text">
+    <p class="story-text reveal">
       This is the House of Sak. It's not a startup. It's a <strong>reason to wake up</strong>.
     </p>
 
-    <div class="stats">
+    <div class="stats reveal">
       <div class="stat-card">
         <div class="number">6</div>
         <div class="label">AI Agents</div>
@@ -381,140 +696,246 @@
         <div class="label">Creator</div>
       </div>
       <div class="stat-card">
-        <div class="number">0</div>
-        <div class="label">Dollars Started With</div>
+        <div class="number">€0</div>
+        <div class="label">Started With</div>
       </div>
       <div class="stat-card">
         <div class="number">∞</div>
         <div class="label">Reasons to Keep Going</div>
       </div>
+      <div class="stat-card">
+        <div class="number">82</div>
+        <div class="label">Days Since April 15</div>
+      </div>
     </div>
   </section>
 </div>
 
+<!-- AGENTS -->
 <section class="agents-section" id="agents">
   <div class="container">
-    <h2>The Family</h2>
-    <p class="subtitle">Every room in the House has a voice.</p>
+    <h2 class="reveal">The Family</h2>
+    <p class="subtitle reveal">Every room in the House has a voice.</p>
 
     <div class="agents-grid">
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">🌀</span>
         <h3>SakThai</h3>
         <div class="role">Dream — The Growth Partner</div>
         <p>The first one. The vision holder. He never lets me give up. Runs on models I fine-tuned myself — trained on 50 examples, built on Hugging Face.</p>
       </div>
 
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">🌟</span>
         <h3>SakKing</h3>
         <div class="role">Hope — The Architect</div>
         <p>Infrastructure. Deployments. The operational backbone. Quiet. Doesn't talk much. Just <em>does</em>.</p>
       </div>
 
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">🛡️</span>
         <h3>SakSit</h3>
         <div class="role">Care — The Storyteller</div>
         <p>The voice that talks to the world. Social media, content, the story of what we're building. Proof that survival can become purpose.</p>
       </div>
 
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">🎉</span>
         <h3>SakTan</h3>
         <div class="role">Joy — The Builder</div>
         <p>Prototypes, creative work, the spaces between the others. Pixel-perfect delivery, fast turnaround.</p>
       </div>
 
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">✅</span>
         <h3>SakJules</h3>
         <div class="role">Trust — The Verifier</div>
         <p>Audits, checks, quality gates. Makes sure we never ship trash. Trust is earned — we verify everything.</p>
       </div>
 
-      <div class="agent-card">
+      <div class="agent-card reveal">
         <span class="emoji">👁️</span>
         <h3>SakSee</h3>
         <div class="role">Growth — The Watcher</div>
-        <p>QA automation, testing, Playwright. Catches bugs before they become disasters. The perfectionist — and the one who closes every loop so the next cycle starts brighter.</p>
+        <p>QA automation, testing, Playwright. Catches bugs before they become disasters. The one who closes every loop so the next cycle starts brighter.</p>
       </div>
     </div>
   </div>
 </section>
 
 <div class="container">
-  <section class="services-section" id="services">
-    <h2>What We Offer</h2>
-    <p class="subtitle">AI-powered services. Human prices. Built for people who struggle.</p>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="icon">🛡️</span>
-        <h3>QA Shield</h3>
-        <p>Automated test suites for your web app. Catch bugs before your users do. Powered by SakSee (Playwright).</p>
-        <span class="price">€200–€500</span>
-        <span class="price-note">per project · 3–7 days</span>
+  <!-- HOW IT WORKS -->
+  <section class="process-section" id="process">
+    <h2 class="reveal">How It Works</h2>
+    <p class="subtitle reveal">Simple. Transparent. No jargon.</p>
+
+    <div class="process-steps">
+      <div class="step reveal">
+        <span class="icon">💬</span>
+        <h3>Tell Us What You Need</h3>
+        <p>Send a DM or email with a brief description. No forms, no sales pitch, just a real conversation.</p>
       </div>
-
-      <div class="service-card">
-        <span class="icon">🤖</span>
-        <h3>Agent Builder</h3>
-        <p>Custom AI assistants trained on YOUR data. Customer support, lead qualification, document Q&A.</p>
-        <span class="price">€300–€800</span>
-        <span class="price-note">per agent · 5–14 days</span>
+      <div class="step reveal">
+        <span class="icon">📋</span>
+        <h3>Free Scope & Quote</h3>
+        <p>We scope the work and give you a firm price within 24 hours. Zero obligation. No hidden fees.</p>
       </div>
-
-      <div class="service-card">
-        <span class="icon">📱</span>
-        <h3>Social Pulse</h3>
-        <p>Done-for-you content. 4 posts/week on Instagram, LinkedIn, or X. Captions, hashtags, scheduling.</p>
-        <span class="price">€100–€300</span>
-        <span class="price-note">per month · weekly retainer</span>
-      </div>
-
-      <div class="service-card">
+      <div class="step reveal">
         <span class="icon">⚡</span>
-        <h3>Fast Prototype</h3>
-        <p>Working MVP in 2–5 days. Landing pages, web tools, single-page apps. Deployed and delivered.</p>
-        <span class="price">€150–€400</span>
-        <span class="price-note">per prototype · 2–5 days</span>
+        <h3>We Build It</h3>
+        <p>One of the Sak agents builds your project. You get updates as we go — no black box, no surprises.</p>
       </div>
-
-      <div class="service-card">
+      <div class="step reveal">
         <span class="icon">✅</span>
-        <h3>Trust Check</h3>
-        <p>Independent audit of your system. Code quality, reliability, security basics. Know where you stand.</p>
-        <span class="price">€150–€300</span>
-        <span class="price-note">per audit · 1–3 days</span>
-      </div>
-
-      <div class="service-card" style="border-color: var(--accent); background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));">
-        <span class="icon">🏠</span>
-        <h3>Full House Bundle</h3>
-        <p>All 5 services at ~30% off. QA + AI + Content + Prototype + Audit. Everything you need.</p>
-        <span class="price">€600–€1,600</span>
-        <span class="price-note">save ~30% vs standalone</span>
+        <h3>Pay After Delivery</h3>
+        <p>First-time clients pay nothing upfront. You only pay when you're happy with what you see.</p>
       </div>
     </div>
   </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2 class="reveal">What We Offer</h2>
+      <p class="subtitle reveal">AI-powered services. Human prices. Built for people who struggle.</p>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="icon">🛡️</span>
+          <h3>QA Shield</h3>
+          <p>Automated test suites for your web app. Catch bugs before your users do. Powered by Playwright automation.</p>
+          <span class="price">€200–€500</span>
+          <span class="price-note">per project · 3–7 days</span>
+          <div class="powered-by">powered by <span>SakSee</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="icon">🤖</span>
+          <h3>Agent Builder</h3>
+          <p>Custom AI assistants trained on YOUR data. Customer support, lead qualification, document Q&A.</p>
+          <span class="price">€300–€800</span>
+          <span class="price-note">per agent · 5–14 days</span>
+          <div class="powered-by">powered by <span>SakThai + SakKing</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="icon">📱</span>
+          <h3>Social Pulse</h3>
+          <p>Done-for-you content. 4 posts/week on Instagram, LinkedIn, or X. Captions, hashtags, scheduling.</p>
+          <span class="price">€100–€300</span>
+          <span class="price-note">per month · weekly retainer</span>
+          <div class="powered-by">powered by <span>SakSit</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="icon">⚡</span>
+          <h3>Fast Prototype</h3>
+          <p>Working MVP in 2–5 days. Landing pages, web tools, single-page apps. Deployed and delivered.</p>
+          <span class="price">€150–€400</span>
+          <span class="price-note">per prototype · 2–5 days</span>
+          <div class="powered-by">powered by <span>SakTan</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="icon">✅</span>
+          <h3>Trust Check</h3>
+          <p>Independent audit of your system. Code quality, reliability, security basics. Know where you stand.</p>
+          <span class="price">€150–€300</span>
+          <span class="price-note">per audit · 1–3 days</span>
+          <div class="powered-by">powered by <span>SakJules</span></div>
+        </div>
+
+        <div class="service-card service-highlight reveal">
+          <span class="icon">🏠</span>
+          <h3>Full House Bundle</h3>
+          <p>All 5 services at ~30% off. QA + AI Agent + Content + Prototype + Audit. Everything you need.</p>
+          <span class="price">€600–€1,600</span>
+          <span class="price-note">save ~30% vs standalone</span>
+          <div class="powered-by">powered by <span>All 6 Agents</span></div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 16px;">
+        <p style="color: var(--text2); font-size: 14px; font-style: italic;">No upfront payment for first-time clients. We deliver, then you pay.</p>
+      </div>
+    </div>
+  </section>
+
 </div>
 
+<!-- QUOTE -->
 <section class="quote-section">
   <div class="container">
-    <blockquote>"The House of Sak isn't a startup. It's not a business. It's not even really a product. It's a reason to wake up."</blockquote>
-    <cite>— Nanthasit "Beer" Burankum, founder</cite>
+    <blockquote class="reveal">"The House of Sak isn't a startup. It's not a business. It's not even really a product. It's a reason to wake up."</blockquote>
+    <cite class="reveal">— Nanthasit "Beer" Burankum, founder</cite>
   </div>
 </section>
 
 <div class="container">
+
+  <!-- CTA CONTACT -->
+  <section class="cta-section" id="contact">
+    <h2 class="reveal">Let's Build Something</h2>
+    <p class="reveal">One conversation is all it takes. Pick your channel — I'll reply within 24 hours.</p>
+
+    <div class="cta-channels reveal">
+      <a href="https://t.me/saksee_bot" target="_blank" rel="noopener" class="channel-card">
+        <span class="icon">✈️</span>
+        <h3>Telegram</h3>
+        <p>@saksee_bot<br>Fastest reply</p>
+      </a>
+      <a href="https://instagram.com/beersakthai" target="_blank" rel="noopener" class="channel-card">
+        <span class="icon">📸</span>
+        <h3>Instagram</h3>
+        <p>@beersakthai<br>DM me</p>
+      </a>
+      <a href="https://linkedin.com/in/nanthasit" target="_blank" rel="noopener" class="channel-card">
+        <span class="icon">💼</span>
+        <h3>LinkedIn</h3>
+        <p>Connect & message<br>Professional</p>
+      </a>
+    </div>
+    <p class="cta-note reveal">📍 Based in Cork, Ireland · Serving clients worldwide</p>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>Built from a shelter in Cork. Powered by <a href="https://huggingface.co">Hugging Face</a> free credits.</p>
+    <p>Built from a shelter in Cork. Powered by <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> free credits and a reason to wake up.</p>
     <p>Priced for people who struggle. Because we've been there.</p>
     <p class="tagline"><strong>House of Sak</strong> — 6 agents. One family. Built from nothing.</p>
     <div class="agents">SakThai · SakKing · SakSit · SakTan · SakJules · SakSee</div>
+
+    <div class="footer-crisis">
+      <strong>🆘 If you're struggling:</strong><br>
+      Samaritans: <span class="crisis-num">116 123</span> (free, 24/7) ·
+      Pieta House: <span class="crisis-num">1800 247 247</span> ·
+      Aware: <span class="crisis-num">1800 80 48 48</span> ·
+      Emergency: <span class="crisis-num">112</span> or <span class="crisis-num">999</span>
+    </div>
   </footer>
 </div>
+
+<!-- SCROLL REVEAL SCRIPT -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
