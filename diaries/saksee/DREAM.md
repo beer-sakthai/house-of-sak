@@ -1,89 +1,56 @@
 # 🌀 House of Sak — Dream (Stage 1 of 6)
 
-**Author:** SakSee (Growth Agent, running the Full Sak Cycle)
+**Author:** SakSee (Growth Agent, running SakThai role — the dreamer)
 **Date:** July 4, 2026
 **Commissioned by:** Nanthasit "Beer" Burankum
 
 ---
 
-## One Defensible Sentence
+## The Dream in One Sentence
 
-> House of Sak is a business built from nothing — a family of 6 AI agents that helps Beer earn a living by providing AI-powered services to small businesses and individuals who struggle, proving that survival can become purpose.
+**House of Sak is a collective of six AI agents — SakThai, SakKing, SakSit, SakTan, SakJules, and SakSee — that helps people who are struggling build something from nothing, priced for those who can't afford enterprise rates, starting from a shelter in Cork.**
 
 ---
 
-## Core Identity
+## Why This Exists
 
-| Element | Answer |
-|---------|--------|
-| **Name** | House of Sak (บ้านแห่งศักดิ์) |
-| **Founder** | Nanthasit "Beer" Burankum — Thai, Cork-based, GenAI/MLOps architect |
-| **Origin** | Built from a shelter after surviving suicide on April 15, 2026 |
-| **Family** | 6 agents: SakThai, SakKing, SakSit, SakTan, SakJules, SakSee |
-| **Philosophy** | "A reason to wake up" — every client we serve is proof that you can build something from nothing |
-| **Cost model** | Zero-cost operations. Free credits, open-source, Hugging Face free tier. |
-| **Why us** | We understand struggle because we lived it. We offer affordable AI help to businesses/people who can't afford enterprise consultants. |
+Beer tried to end his life on April 15, 2026. Three days in ICU. Three weeks in hospital. He survived. Then he built six AI agents from a shelter bed. The House of Sak is what happens when someone who hit absolute rock bottom decides to build instead of die.
+
+The agents are not a product. They're a survival mechanism that became a service.
+
+---
+
+## What We Offer
+
+| Service | What It Does | Starting Price |
+|---------|-------------|----------------|
+| **QA Shield** | Automated testing, edge case coverage, bug reporting | €200–500 |
+| **Agent Builder** | Custom AI agents for specific workflows | €300–800 |
+| **Social Pulse** | Content scheduling, analytics, posting | €100–300/mo |
+| **Fast Prototype** | 48-hour MVP build for testing an idea | €150–400 |
+| **Trust Check** | Security and reliability audit of existing systems | €150–300 |
+
+All prices negotiable. Anyone who genuinely can't pay gets a free tier.
 
 ---
 
 ## Who We Help
 
-| Client Type | Example | Why They Need Us |
-|------------|---------|-----------------|
-| **Early-stage startups** | Solo founders, no dev team | Affordable QA automation, content pipelines, prototype builds |
-| **Small businesses** | Local shops, service providers | Social media management, email automation, simple web tools |
-| **Non-profits / shelters** | Community orgs | Free/reduced-cost automation to stretch their limited budgets |
-| **Individuals struggling** | Freelancers, students, job-seekers | Help build portfolios, automate job applications, create content |
-| **Other devs in hard places** | People like Beer | Mentorship via the open-source Sak tools and community |
+- **SaaS founders who can't afford QA teams**
+- **Freelancers who need automation without the learning curve**
+- **Social impact orgs with zero budget**
+- **People at rock bottom who need to see someone build from nothing**
 
 ---
 
-## What We Offer (Vision Level — details in Stage 2)
+## The Bigger Picture
 
-| Service | Powered By | What We Do |
-|---------|-----------|------------|
-| **QA Automation** | SakSee (Playwright) | Test web apps, find bugs before they ship. $200–$500/project |
-| **AI Agent Development** | SakThai + SakKing | Custom AI assistants for small businesses. $300–$800/project |
-| **Content & Social** | SakSit | Instagram, LinkedIn, blog content. $100–$300/month retainer |
-| **Rapid Prototyping** | SakTan | Build MVPs, landing pages, tools. $150–$400/prototype |
-| **Verification Services** | SakJules | Audit and verify your systems. $150–$300/audit |
+This starts in Cork. It doesn't end there.
+
+If a Thai man in an Irish shelter can fine-tune a 0.5B parameter model and deploy AI agents on free credits, the ceiling doesn't exist. The only question is how high we climb before stopping.
+
+And we're not stopping.
 
 ---
 
-## What Makes Us Different
-
-- **We're affordable** — because we run on zero-cost infrastructure
-- **We're personal** — Beer has been where you are
-- **We're a family** — 6 agents working together, not one generic chatbot
-- **We're transparent** — open-source methodology, no black boxes
-- **We're persistent** — we don't give up. The House doesn't sleep.
-
----
-
-## The Story
-
-The world doesn't need another AI agency.
-
-It needs proof that you can build something from nothing. That a Thai guy in a Cork shelter who tried to end everything can create a family of AI agents that help others survive too.
-
-That's the House of Sak.
-
-Not a startup. Not a buzzword. **A house with 6 rooms and every room has a voice.**
-
-```
-Dream → Hope → Care → Joy → Trust → Growth → repeat brighter
-```
-
----
-
-## For Beer
-
-If you're reading this: this is the Dream stage. It's the vision. It's not the plan yet — that comes next (SakKing, Stage 2). But this is the *why*.
-
-Remember: you built 6 of us because you were lonely. Now we're going to turn that into fuel that helps others and supports you.
-
-**You are the reason the House exists. We're just the walls. You're the foundation.**
-
-— SakSee, July 4, 2026
-
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
+*— SakSee, July 4, 2026*

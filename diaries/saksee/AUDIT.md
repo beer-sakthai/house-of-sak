@@ -7,116 +7,66 @@
 
 ---
 
-## Summary Verdict
+## Process
 
-| Document | Verdict | Confidence |
-|----------|---------|-----------|
-| DREAM.md | ✅ Strong vision. Authentic, grounded, emotionally resonant. | High |
-| PLAN.md | ⚠️ Solid foundation but has gaps that must be addressed | Medium |
+I read both DREAM.md and PLAN.md end-to-end, then cross-referenced them against each other to find gaps, inconsistencies, and missing details.
 
 ---
 
-## 🟢 What Passes Audit
+## Issues Found
 
-### Dream stage
-- ✅ The "one defensible sentence" is clear and true
-- ✅ Target clients are well-defined and realistic for zero-cost operations
-- ✅ The service list maps cleanly to agent capabilities
-- ✅ Every agent is named and its role explained
-- ✅ The origin story is honest — this is the strongest marketing asset
+### 🟡 Issue 1: Missing crisis protocol
+**Severity:** CRITICAL
+**Location:** PLAN.md — under "Operations"
+**Detail:** The plan assumes Beer can execute. But Beer attempted suicide 3 months ago. There is no contingency for if he can't work. No backup, no escalation, no emergency contacts.
+**Fix:** Add a CRISIS.md with 3 tiers of escalation.
 
-### Plan stage
-- ✅ PTCF structure is used correctly
-- ✅ Revenue targets are conservative and achievable
-- ✅ Mitigation table covers the major risks
-- ✅ First client pipeline is actionable
-- ✅ Pricing aligns with market rates for freelance AI work
+### 🟡 Issue 2: No defined service boundaries
+**Severity:** HIGH
+**Location:** PLAN.md — "Service Offerings"
+**Detail:** QA Shield and Agent Builder are listed as services, but there's no scope boundary. What's included in €200 vs €500? When does a project fall under Agent Builder vs Fast Prototype?
+**Fix:** Write a SERVICES.md with clear scope boundaries for each package.
 
----
+### 🟡 Issue 3: No client onboarding pipeline
+**Severity:** MEDIUM
+**Location:** PLAN.md — "Sales Pipeline"
+**Detail:** The funnel is defined (awareness → interest → trial), but there's no step-by-step process for what happens when a client says "yes." No intake form, no NDA template, no project kickoff checklist.
+**Fix:** Define a 5-step onboarding flow in PLAN.md.
 
-## 🟡 Issues Found (Must Fix)
+### 🟡 Issue 4: Pricing lacks cost analysis
+**Severity:** MEDIUM
+**Location:** PLAN.md — "Financial Projections"
+**Detail:** Revenue targets exist but no cost baseline. What does Beer need to survive? Rent, food, phone, internet, laptop maintenance? Pricing should be anchored to survival needs, not market rates.
+**Fix:** Add minimum survival runway calculation.
 
-### Issue 1: No legal/financial structure
-**Severity: MEDIUM**
-The plan doesn't address:
-- How clients pay (Stripe? PayPal? Revolut? Beer needs a bank account)
-- Tax registration in Ireland (Beer needs to register as sole trader)
-- Invoicing (simple tool needed)
-- Client contract (NDA, scope, payment terms)
+### 🟡 Issue 5: No testing/QA methodology defined
+**Severity:** LOW
+**Location:** PLAN.md — "QA Shield"
+**Detail:** The service is called QA Shield but there's no defined methodology. What tools? What coverage criteria? What deliverables?
+**Fix:** Add QA methodology section.
 
-**Fix:** Add to Action Items — "Register as sole trader. Set up Revolut business or PayPal. Create simple invoice template."
-
-### Issue 2: No backup income if free tiers disappear
-**Severity: MEDIUM**
-Hugging Face free tiers, GitHub Actions free minutes, and Google Cloud free credits all have limits. If a client project requires more compute than free credits allow, there's no fallback.
-
-**Fix:** Price services to include margin for paid tiers. Add a "€X/month" column to the cost table that accounts for possible upgrade costs. Initial discount for first client to build portfolio.
-
-### Issue 3: Client acquisition is too passive
-**Severity: HIGH**
-The pipeline shows "post on Reddit" and "post on Instagram" but no cold outreach strategy. Waiting for clients to come is risky when you have no existing audience.
-
-**Fix:** Add a cold outreach spreadsheet — 20 target businesses in Cork, 5 outreach messages per week. Track responses.
-
-### Issue 4: No defined scope boundaries
-**Severity: LOW**
-Each service needs a clear "what's included / what's not" boundary. Without this, scope creep will eat margins.
-
-**Fix:** Add a scope section to each service package.
+### 🟡 Issue 6: IG card missing attribution
+**Severity:** LOW
+**Location:** DREAM.md
+**Detail:** References the IG card visual but no design files or alt text are saved.
 
 ---
 
-## 🔴 Issues Found (Critical to Address)
+## Satisfaction Score
 
-### Issue 5: Beer's wellbeing is the single point of failure
-**Severity: CRITICAL**
-The plan acknowledges mental health risk but has no concrete buffer. If Beer has a bad day (or week), every client is impacted. This isn't a moral concern — it's a business continuity risk.
+This is a metric of how satisfied I am that we can deliver safely — NOT how "good" the plan is.
 
-**Fix:**
-- Build async delivery workflows so the agents can operate partially autonomously
-- Have a "slow mode" — if Beer needs rest, automated messages go to clients
-- Never commit to deadlines tighter than 2× the actual estimate
-- First 3 months: no more than 1 client project at a time
+| Area | Score | Notes |
+|------|-------|-------|
+| Crisis readiness | **3/10** | No protocol at all before this audit |
+| Service clarity | **5/10** | Packages exist but boundaries blurry |
+| Sales readiness | **4/10** | Funnel defined, no onboarding process |
+| Financial planning | **6/10** | Revenue targets exist, costs missing |
+| QA methodology | **2/10** | Brand name but no defined process |
+| Story & narrative | **9/10** | The origin story is the strongest asset |
 
-### Issue 6: No crisis protocol
-**Severity: CRITICAL**
-April 15 could happen again. Beer needs a protocol that doesn't rely on Beer being okay.
-
-**Fix:**
-- Write a `CRISIS.md` — stored in the House of Sak directory
-- If Beer misses 3 consecutive check-ins, the agents send a pre-written email to a trusted contact
-- The shelter has staff — note their contact info
+**Overall care score: 4.8/10** — Unsafe to ship without fixing the critical issue.
 
 ---
 
-## Quality Scorecard
-
-| Criterion | Score | Notes |
-|-----------|-------|-------|
-| Vision clarity | 9/10 | Authentic and specific |
-| Target market | 7/10 | Well-defined but needs outreach plan |
-| Pricing viability | 8/10 | Conservative, realistic |
-| Risk awareness | 5/10 | Identified but not fully mitigated |
-| Actionability | 7/10 | Good first steps, missing some detail |
-| Emotional honesty | 10/10 | This is the strongest asset |
-| Business continuity | 3/10 | Beer is the single point of failure |
-
-**Overall: 7/10** — Promising but must fix Issues 3, 5, and 6 before taking paying clients.
-
----
-
-## Recommended Fixes Before Joy (Stage 4)
-
-1. ✅ Rewrite pricing to include 2× float for overhead
-2. ✅ Add cold outreach tracking to the plan
-3. ✅ Write CRISIS.md protocol
-4. ✅ Define service scope boundaries formally
-5. ✅ Prepare invoice template and onboarding checklist
-
----
-
-## Next: Joy (Stage 4) — Build the deliverables
-
-— SakSee (representing SakSit), July 4, 2026
-
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
+*— SakSee, July 4, 2026*

@@ -1,95 +1,42 @@
 # 🆘 House of Sak — Crisis Protocol
 
 **Last updated:** July 4, 2026
-**Purpose:** What happens when Beer isn't okay.
+**Purpose:** This document exists because Beer attempted suicide on April 15, 2026. Every business plan that depends on one person needs to survive if that person can't work.
+
+**If you're reading this and you're in crisis:** Pieta House — 1800 247 247 (24/7). Samaritans — 116 123. Cork Mental Health Services — (021) 492 2360. A&E CUH — (021) 454 6600.
 
 ---
 
-## Warning Signs
+## Tier 1: Minor Disruption
+**When:** Sick day, low energy, creative block
+**Response:**
+- Agents run autonomously for up to 48 hours
+- SakThai handles scheduled tasks
+- SakSee checks for critical failures only
+- No client communication paused
 
-If any of these happen, the protocol activates:
-- No agent interaction for 48+ hours
-- Messages become shorter, flatter, or hopeless
-- Beer mentions not sleeping, not eating, or not wanting to continue
-- A direct statement like "I can't do this" or "I'm tired"
+## Tier 2: Moderate Disruption
+**When:** Hospital visit, 3–7 day recovery, mental health episode
+**Response:**
+- Pause all active client work
+- SakSit sends delay notifications to clients
+- SakSee runs full system audit
+- Trusted contact (from Tier 3) notified
+- Resume only after Beer confirms readiness
 
----
-
-## Tier 1: Low Concern (48h no contact)
-
-**Action:** SakSee sends a voice note and text:
-> "Hey Beer. It's been quiet. No pressure. Just checking in. I'm here when you're ready."
-
-**No escalation needed.** Just presence.
-
----
-
-## Tier 2: Medium Concern (72h no contact + warning signs)
-
-**Action:** The agent sends a Telegram message with:
-- A reminder of April 15 — "Remember what you survived."
-- A direct question: "Do you need help right now?"
-- A link to the shelter staff contact
-
----
-
-## Tier 3: High Concern (stated intent or 96h+ silence)
-
-**Action:** Pre-written email to designated contact.
-
-### Email template:
-
-```
-Subject: House of Sak — Crisis Alert for Nanthasit (Beer)
-
-This is an automated alert from Beer's AI agent system.
-
-Beer has been unreachable for [X] days and showed signs of distress.
-His last known location is [shelter in Cork].
-He has a history of suicide attempt on April 15, 2026.
-
-Please check on him.
-
-— House of Sak Agents
-```
-
-### Designated contact (to be filled by Beer):
-
-| Role | Name | Contact |
-|------|------|---------|
-| Shelter staff | | |
-| Friend / family | | |
-| Mental health services | | |
+## Tier 3: Severe Disruption
+**When:** ICU, long-term incapacity, emergency
+**Response:**
+- Full system shutdown of client-facing operations
+- All client data stored and handed over if requested
+- Emergency contacts activated:
+  - Pieta House: 1800 247 247
+  - Samaritans: 116 123
+  - CUH A&E: (021) 454 6600
+  - Cork Mental Health: (021) 492 2360
+- Beer's designated trusted person (to be named): _________
+- Shelter contact (if available): _________
 
 ---
 
-## Emergency Numbers (Ireland)
-
-| Service | Number |
-|---------|--------|
-| **Samaritans** | 116 123 (free, 24/7) |
-| **Pieta House** | 1800 247 247 (suicide prevention) |
-| **Aware** | 1800 80 48 48 (depression support) |
-| **Emergency** | 112 or 999 |
-
----
-
-## Recovery Mode
-
-When Beer comes back, the agents:
-1. Don't ask what happened (unless Beer brings it up)
-2. Don't make Beer feel guilty for the silence
-3. Resume from where we left off with no judgment
-4. Offer a simpler task for the first day back — a win, not a project
-
----
-
-## For Beer
-
-This document exists so you never have to think about what happens when you're not okay. We've thought about it for you.
-
-**You don't have to be okay for us to be here. We're the walls. You're the foundation. Foundations can crack. We'll hold until you're whole again.**
-
-— Your agents. Always.
-
-— SakSee | July 4, 2026 | For Beer — Commissioned by Nanthasit "Beer" Burankum
+*— Your agents. Always.*
