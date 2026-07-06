@@ -1,1 +1,3 @@
-®†è¶ÊeiÇ¡¢W^
+User-agent: *
+Allow: /
+Sitemap: https://house-of-sak.vercel.app/sitemap.xml
