@@ -8,7 +8,7 @@
 <meta property="og:title" content="House of Sak — Built from Nothing">
 <meta property="og:description" content="Six AI agents. One creator. Built from a Cork shelter. Now helping small businesses with QA, AI agents, content, prototypes, and audits. Pay after delivery.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://houseofsak.ie">
+<meta property="og:url" content="https://house-of-sak.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="House of Sak">
 <meta name="twitter:description" content="Six AI agents. One creator. Built from a Cork shelter. Pay after delivery.">
@@ -861,6 +861,8 @@
     <li><a href="#agents">Agents</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
@@ -918,7 +920,7 @@
         <div class="label">Reasons to Keep Going</div>
       </div>
       <div class="stat-card">
-        <div class="number">82</div>
+        <div class="number" id="days-counter">82</div>
         <div class="label">Days Since April 15</div>
       </div>
     </div>
@@ -984,6 +986,20 @@
     <h2 class="reveal">How It Works</h2>
     <p class="subtitle reveal">Simple. Transparent. No jargon.</p>
 
+    <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin-bottom:40px;font-size:13px;">
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">💭 Dream</div>
+      <span style="color:var(--accent);">→</span>
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">🌟 Hope</div>
+      <span style="color:var(--accent);">→</span>
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">🛡️ Care</div>
+      <span style="color:var(--accent);">→</span>
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">🎉 Joy</div>
+      <span style="color:var(--accent);">→</span>
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">✅ Trust</div>
+      <span style="color:var(--accent);">→</span>
+      <div style="padding:8px 14px;border-radius:100px;background:var(--surface);border:1px solid var(--border);color:var(--text);">👁️ Growth</div>
+    </div>
+
     <div class="process-steps">
       <div class="step reveal">
         <span class="icon">💬</span>
@@ -1048,6 +1064,15 @@
         <span class="icon">🫂</span>
         <h3>Built for People Who Struggle</h3>
         <p>We started with nothing. We price for people like us. If you're between jobs, starting from zero, or just trying to keep your head above water — we get it. We're here.</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:48px;">
+      <p style="color:var(--text2);font-size:14px;margin-bottom:16px;">Verified public profiles behind the work:</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://huggingface.co/Nanthasit" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;">HuggingFace</a>
+        <a href="https://www.skills.google/public_profiles/cb765479-712a-418b-9a52-50e8c758c4b6" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;">Google Skills</a>
+        <a href="https://me.developers.google.com/u/Nanthasit" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;">Google Developers</a>
+        <a href="https://learn.microsoft.com/en-us/users/nanthasith/" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;">Microsoft Learn</a>
       </div>
     </div>
   </section>
@@ -1259,6 +1284,30 @@
       </div>
     </div>
 
+    <div class="reveal" style="margin-top:48px;padding:28px;border:1px solid var(--border);border-radius:16px;background:var(--surface2);">
+      <h3 style="text-align:center;margin-bottom:24px;font-size:20px;">Scope at a Glance</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;font-size:13px;color:var(--text2);">
+        <div>
+          <strong style="color:var(--green);">QA Shield ✓</strong> Up to 10 user flows, cross-browser CI, screenshots & video, 30-day maintenance.<br><strong style="color:var(--red);">✗</strong> Load testing, penetration testing, mobile native apps.
+        </div>
+        <div>
+          <strong style="color:var(--green);">Agent Builder ✓</strong> Single-use-case agent trained on your data, 30-min handover.<br><strong style="color:var(--red);">✗</strong> Multi-agent systems, real-time voice, training from scratch.
+        </div>
+        <div>
+          <strong style="color:var(--green);">Social Pulse ✓</strong> 4 posts/week on one platform, calendar + visuals.<br><strong style="color:var(--red);">✗</strong> Video production, paid ads, community replies.
+        </div>
+        <div>
+          <strong style="color:var(--green);">Fast Prototype ✓</strong> Single-page app or 3-page static site, deployed, 2 revisions.<br><strong style="color:var(--red);">✗</strong> Backend APIs, databases, custom domains.
+        </div>
+        <div>
+          <strong style="color:var(--green);">Trust Check ✓</strong> Code review, security basics, performance scan, PDF report.<br><strong style="color:var(--red);">✗</strong> Full penetration testing, SOC2, benchmarking.
+        </div>
+        <div>
+          <strong style="color:var(--green);">Full House ✓</strong> All 5 services coordinated, ~30% off, priority scheduling.<br><strong style="color:var(--red);">✗</strong> Anything outside the 5 base packages; extra scope quoted separately.
+        </div>
+      </div>
+    </div>
+
     <div class="reveal" style="text-align:center;margin-top:48px;padding:24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);">
       <p style="color:var(--text2);font-size:14px;font-style:italic;margin:0;">
         💡 <strong style="color:var(--text);">No upfront payment</strong> for first-time clients.
@@ -1266,6 +1315,13 @@
         <span style="font-size:13px;color:var(--text2);opacity:0.7;">All prices in EUR. Payment via Revolut or bank transfer.</span>
       </p>
     </div>
+  </section>
+
+  <!-- FIRST CLIENT OFFER -->
+  <section class="reveal" style="text-align:center;padding:48px 24px;border:2px dashed var(--accent);border-radius:16px;background:rgba(139,92,246,0.08);margin-bottom:64px;">
+    <h2 style="font-size:24px;margin-bottom:12px;">First Client Offer</h2>
+    <p style="color:var(--text2);max-width:600px;margin:0 auto 20px;">Be our first public case study and get 20% off your first project. We deliver, you inspect, you pay — and we feature your project as proof that this works.</p>
+    <a href="#contact" class="btn btn-primary" style="display:inline-block;">Claim 20% Off</a>
   </section>
 
   <!-- HOW WE PRICE -->
@@ -1306,6 +1362,17 @@
           <p>We're not trying to maximise profit. We're trying to prove that people who have nothing can still build something worth paying for. That's the whole point.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- AS SEEN ON -->
+  <section class="reveal" style="text-align:center;padding:32px 0;">
+    <p style="color:var(--text2);font-size:14px;margin-bottom:16px;">As seen on</p>
+    <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;opacity:0.7;font-size:14px;color:var(--text2);">
+      <span>LinkedIn</span>
+      <span>r/Cork</span>
+      <span>Instagram</span>
+      <span>Hugging Face</span>
     </div>
   </section>
 
@@ -1383,6 +1450,16 @@
     </div>
   </section>
 
+  <!-- CASE STUDIES -->
+  <section class="reveal" id="portfolio" style="padding:48px 0;">
+    <h2 style="text-align:center;margin-bottom:16px;">Case Studies</h2>
+    <p style="color:var(--text2);text-align:center;max-width:600px;margin:0 auto 24px;">Real projects, real results. We're building our first featured cases now.</p>
+    <div style="max-width:500px;margin:0 auto;padding:32px;border:1px dashed var(--border);border-radius:16px;text-align:center;background:var(--surface);">
+      <p style="color:var(--text2);margin-bottom:16px;">Your project could be here. Be our first featured case study and get 20% off.</p>
+      <a href="#contact" class="btn btn-outline" style="display:inline-block;">Start a Project</a>
+    </div>
+  </section>
+
 </div>
 
 <!-- QUOTE -->
@@ -1399,6 +1476,14 @@
   <section class="cta-section" id="contact">
     <h2 class="reveal">Let's Build Something</h2>
     <p class="reveal">One conversation is all it takes. I'll reply within 24 hours.</p>
+
+    <form action="mailto:gensandee@gmail.com?subject=House%20of%20Sak%20Inquiry" method="post" enctype="text/plain" class="reveal" style="max-width:500px;margin:0 auto 32px;padding:24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);">
+      <input type="text" name="name" placeholder="Your name" required style="width:100%;margin-bottom:12px;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-family:inherit;font-size:14px;">
+      <input type="email" name="email" placeholder="Your email" required style="width:100%;margin-bottom:12px;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-family:inherit;font-size:14px;">
+      <textarea name="message" placeholder="What do you need help with?" required rows="4" style="width:100%;margin-bottom:16px;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-family:inherit;font-size:14px;resize:vertical;"></textarea>
+      <button type="submit" class="btn btn-primary" style="display:block;width:100%;">Send Inquiry</button>
+      <p style="color:var(--text2);font-size:12px;margin-top:12px;margin-bottom:0;">Or reach out directly through the channels below.</p>
+    </form>
 
     <div class="cta-channels reveal">
       <a href="https://t.me/saksee_bot" target="_blank" rel="noopener" class="channel-card">
@@ -1439,6 +1524,10 @@
       These are the real public profiles behind the work. No agency. No invented credentials. Verifiable proof that skills can be built from nothing.
     </div>
 
+    <div style="margin-top: 16px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; color: var(--text2); font-size: 13px; max-width: 720px; margin-left: auto; margin-right: auto;">
+      We build sustainably. If you don't hear back within 24h, something may be wrong — our <a href="https://github.com/beer-sakthai/house-of-sak/blob/main/CRISIS.md" target="_blank" rel="noopener" style="color:var(--accent);">crisis protocol</a> is in place.
+    </div>
+
     <div class="footer-crisis">
       <strong>🆘 If you're struggling</strong> — you're not alone. These services are free, confidential, and available 24/7:<br>
       Samaritans: <span class="crisis-num">116 123</span>
@@ -1469,6 +1558,15 @@
       document.querySelector('.nav-links').classList.remove('open');
     });
   });
+
+  // Dynamic days counter
+  (function() {
+    const start = new Date('2026-04-15T00:00:00Z');
+    const now = new Date();
+    const days = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    const el = document.getElementById('days-counter');
+    if (el) el.textContent = days > 0 ? days : 0;
+  })();
 
   // FAQ toggle
   function toggleFaq(btn) {

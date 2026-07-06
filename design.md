@@ -36,6 +36,9 @@ The project's architecture is centered around a collection of AI agents, each wi
 - `VERIFY.md`: Trust verification and readiness assessment.
 - `LESSONS.md`: Growth and lessons learned.
 - `index.html`: The main landing page.
+- `og-image.png`: 1200×630 social sharing image.
+- `robots.txt`: Allow-all crawl policy with sitemap reference.
+- `sitemap.xml`: Single-URL sitemap for search engines.
 - `ig-card.png`, `ig-caption.txt`, `reddit-cork-post.md`: Marketing assets.
 - `diaries/`: Contains personal reflections and detailed agent-specific documents.
 
@@ -60,6 +63,10 @@ The project's architecture is centered around a collection of AI agents, each wi
 - **Client Quick Start:** Instructions for potential clients.
 - **Crisis Protocol:** Important contact information for mental health support.
 - **Footer:** Licensing, acknowledgments, and links to Beer's professional profiles.
+- **SEO / Social:** Canonical URL, `og:image`, `twitter:image`, JSON-LD `LocalBusiness`/`Organization` structured data.
+- **Analytics:** Vercel Analytics script for usage visibility.
+- **Dynamic Counter:** Days-since counter calculated from April 15, 2026.
+- **Verified Profiles:** Footer links to HuggingFace, Google Skills, Google Developers, and Microsoft Learn profiles.
 
 ## 5. UI/UX Design
 
@@ -89,7 +96,12 @@ As the current project is a static website, there is no complex client-side stat
 
 ## 9. Deployment
 
-The `index.html` and associated assets are deployed as a static site. The project leverages free hosting solutions, consistent with its zero-cost operational model. GitHub Actions are used for CI/CD processes related to automation and verification.
+The `index.html` and associated assets are deployed as a static site to Vercel (https://house-of-sak.vercel.app), which auto-deploys from the `main` branch on GitHub. The project leverages free hosting solutions, consistent with its zero-cost operational model. GitHub Actions are used for CI/CD processes related to automation and verification.
+
+After any commit, verify:
+1. `curl -s https://raw.githubusercontent.com/beer-sakthai/house-of-sak/main/index.html | head -5` returns `<!DOCTYPE html>`.
+2. `curl -sI https://house-of-sak.vercel.app/` returns `200` and `Content-Type: text/html`.
+3. The browser view is not garbled. Note: Vercel may serve Brotli-compressed responses, which some browser tools do not decode; raw `curl` is the ground truth.
 
 ## 10. Future Improvements
 
@@ -99,3 +111,4 @@ The `index.html` and associated assets are deployed as a static site. The projec
 - **Business Continuity:** Develop more robust async delivery workflows and a "slow mode" for client communication during periods of reduced availability.
 - **Portfolio Development:** Prioritize building case studies from initial client projects.
 - **Scalability:** Explore options for scaling services beyond free-tier limitations as revenue grows.
+- **Single Source of Truth:** Keep `design.md`, `plan.md`, `SERVICES.md`, and `index.html` synchronized so docs do not drift from the live site.
