@@ -1,0 +1,53 @@
+name: Validate HTML
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check HTML files are not corrupted
+        run: |
+          fail=0
+          while IFS= read -r -d '' file; do
+            size=$(wc -c < "$file")
+            if [ "$size" -lt 500 ]; then
+              echo "FAIL: $file is only $size bytes (expected a real page, not a placeholder)"
+              fail=1
+              continue
+            fi
+
+            head_bytes=$(head -c 20 "$file" | tr '[:upper:]' '[:lower:]')
+            case "$head_bytes" in
+              "<!doctype html"*) ;;
+              *)
+                echo "FAIL: $file does not start with <!doctype html>"
+                fail=1
+                continue
+                ;;
+            esac
+
+            tail_bytes=$(tail -c 10 "$file")
+            case "$tail_bytes" in
+              *"</html>"*) ;;
+              *)
+                echo "FAIL: $file does not end with </html>"
+                fail=1
+                continue
+                ;;
+            esac
+
+            if grep -qE '^[A-Za-z0-9+/=]{200,}$' "$file"; then
+              echo "FAIL: $file contains a suspiciously long base64-like line (possible corrupted commit)"
+              fail=1
+              continue
+            fi
+
+            echo "OK: $file ($size bytes)"
+          done < <(find . -name "*.html" -not -path "./node_modules/*" -print0)
+
+          exit $fail
