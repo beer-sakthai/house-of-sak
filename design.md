@@ -44,39 +44,56 @@ The project's architecture is centered around a collection of AI agents, each wi
 
 **Agent Roles:**
 
-- **SakThai 🧠:** AI/ML Agent (Custom AI assistants, model fine-tuning, Hugging Face expertise).
-- **SakKing 👑:** General Assistant (Infrastructure, coordination, system architecture).
-- **SakSit 🧿:** Learning & Growth (Content strategy, social media, the Full Sak Cycle).
-- **SakTan ⚡:** Creative Builder (Rapid prototyping, web apps, MVP builds).
-- **SakJules 🔧:** Automation & CI/CD (GitHub workflows, deployment pipelines, verification audits).
-- **SakSee 👁️:** Growth & Verification (The cycle driver — sees everything, closes every loop).
+- **SakThai 🌀:** Dream — The Growth Partner (Custom AI assistants, fine-tuning, Hugging Face).
+- **SakKing 🌟:** Hope — The Architect (Infrastructure, deployments, system backbone).
+- **SakSit 🛡️:** Care — The Storyteller (Content strategy, social media, the Full Sak Cycle).
+- **SakTan 🎉:** Joy — The Builder (Rapid prototyping, web apps, MVPs).
+- **SakJules ✅:** Trust — The Verifier (Audits, quality gates, verification).
+- **SakSee 👁️:** Growth — The Watcher (QA automation, Playwright, cycle closure).
 
 ## 4. Pages & Features
 
 **Landing Page (`index.html`):**
 
-- **Hero Section:** Introduction to House of Sak, its mission, and Beer's story.
-- **Agent Introduction:** Details on each of the 6 AI agents and their roles.
-- **Services Section:** Overview of service packages with pricing.
-- **Full Sak Cycle:** Explanation of the project workflow (Dream → Hope → Care → Joy → Trust → Growth).
-- **Repository Contents:** Guide to the documentation within the GitHub repository.
-- **Client Quick Start:** Instructions for potential clients.
-- **Crisis Protocol:** Important contact information for mental health support.
-- **Footer:** Licensing, acknowledgments, and links to Beer's professional profiles.
-- **SEO / Social:** Canonical URL, `og:image`, `twitter:image`, JSON-LD `LocalBusiness`/`Organization` structured data.
-- **Analytics:** Vercel Analytics script for usage visibility.
-- **Dynamic Counter:** Days-since counter calculated from April 15, 2026.
+- **Hero Section:** Introduction to House of Sak, its mission, and Beer's story. Includes family illustration and quick stats.
+- **Agent Introduction (`#agents`):** Details on each of the 6 AI agents and their roles, with SVG profile images.
+- **Full Sak Cycle (`#process`):** Explanation of the project workflow (Dream → Hope → Care → Joy → Trust → Growth).
+- **Why Us (`#why`):** Differentiators including no upfront for first-timers, no agency overhead, verified public profiles, and transparent delivery.
+- **Services Section (`#services`):** Six service cards with pricing, scope, and CTAs. Includes a 20% first-client offer banner.
+- **Pricing Section (`#pricing`):** Three pricing philosophies — Audit & Test, Build & Ship, Ongoing Growth.
+- **Story Section (`#story`):** Origin story with three supporting SVG illustrations.
+- **Team Section (`#team`):** Family illustration and narrative about the creator and the six agents.
+- **Contact CTA (`#contact`):** Email lead capture and link to Stories & Reports.
+- **Footer:** Sitemap, social links, and crisis protocol.
+- **SEO / Social:** Canonical URL, `og:image`, `twitter:image`, JSON-LD `Organization` structured data, `theme-color`.
+- **Accessibility:** Skip link, focus-visible outlines, ARIA labels, reduced-motion support, semantic headings.
+- **Navigation:** Fixed glassmorphism nav with mobile hamburger menu and smooth-scroll anchors.
+- **Animations:** Scroll-triggered reveal animations with stagger delays.
 - **Verified Profiles:** Footer links to HuggingFace, Google Skills, Google Developers, and Microsoft Learn profiles.
 
 ## 5. UI/UX Design
 
-**General Principles:** The landing page (`index.html`) employs a clean, minimalist design with a focus on readability and clear communication. The design uses a dark theme with contrasting text for accessibility.
+**General Principles:** The landing page (`index.html`) uses a dark, modern, glassmorphism-influenced design that emphasizes trust, clarity, and accessibility. Sections alternate between the base background and a slightly elevated surface to create visual rhythm without heavy decoration.
 
-**Color Palette:** Dominated by dark backgrounds, white/light text, and subtle accent colors for links and interactive elements.
+**Color Palette:**
+- Base backgrounds: `#050505`, `#08080a`, `#0f0f12`.
+- Text: `#f5f5f7` (primary), `#b4b4be` (secondary), `#7e7e88` (muted).
+- Accents: purple `#7c3aed` → `#a78bfa`, cyan `#06b6d4`, green `#22c55e`, gold `#f59e0b`.
+- All interactive elements use focus-visible outlines and meet WCAG AA contrast targets.
 
-**Typography:** Sans-serif fonts are used for headings and body text, ensuring modern aesthetics and legibility.
+**Typography:** Inter for headings and body; JetBrains Mono reserved for code or technical microcopy. Fluid `clamp()` sizes for major headings.
 
-**Layout:** Responsive design principles are applied, with content adapting to various screen sizes. Sections are clearly delineated, and calls to action are prominent.
+**Visual Assets:**
+- `assets/agents/*.svg` — Abstract circular profile icons for each agent.
+- `assets/stories/*.svg` — SVG story illustrations for the origin section.
+- `assets/team/HouseOfSakFamily.svg` — Family/team illustration used in hero and team sections.
+- `og-image.png` — 1200×630 social sharing image.
+
+**Layout:** Responsive, mobile-first grid system with a maximum container width of 1200px. Cards use CSS Grid with `auto-fit` to reflow gracefully. A fixed glassmorphism navigation bar includes a hamburger menu on mobile.
+
+**Motion:** Scroll-triggered `.reveal` fade-up animations with stagger delays. `prefers-reduced-motion` disables animations for users who need reduced motion.
+
+**Accessibility:** Skip link, semantic landmarks (`main`, `nav`, `footer`, `section`), descriptive alt text on every image, ARIA labels on the mobile menu, keyboard focus styles, and a logical heading hierarchy.
 
 ## 6. Data Model
 

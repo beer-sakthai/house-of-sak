@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="The House of Sak family: six AI agents and their creator united">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#1e1b4b"/>
+    <stop offset="100%" stop-color="#0f172a"/>
+  </linearGradient>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="6"/>
+  </filter>
+</defs>
+<rect width="800" height="400" fill="url(#sky)"/>
+<!-- house -->
+<path d="M340 260 L400 200 L460 260 V340 H340 Z" fill="#312e81" stroke="#818cf8" stroke-width="4"/>
+<rect x="380" y="290" width="40" height="50" fill="#1e1b4b"/>
+<circle cx="400" cy="245" r="18" fill="#a78bfa" opacity="0.9"/>
+<!-- silhouettes -->
+<circle cx="220" cy="250" r="35" fill="#4338ca" opacity="0.85"/>
+<path d="M180 340 Q220 260 260 340 Z" fill="#4338ca" opacity="0.85"/>
+<circle cx="320" cy="270" r="30" fill="#22d3ee" opacity="0.8"/>
+<path d="M290 340 Q320 280 350 340 Z" fill="#22d3ee" opacity="0.8"/>
+<circle cx="480" cy="270" r="30" fill="#f59e0b" opacity="0.8"/>
+<path d="M450 340 Q480 280 510 340 Z" fill="#f59e0b" opacity="0.8"/>
+<circle cx="580" cy="250" r="35" fill="#22c55e" opacity="0.85"/>
+<path d="M540 340 Q580 260 620 340 Z" fill="#22c55e" opacity="0.85"/>
+<circle cx="130" cy="270" r="28" fill="#818cf8" opacity="0.8"/>
+<path d="M105 340 Q130 285 155 340 Z" fill="#818cf8" opacity="0.8"/>
+<circle cx="670" cy="270" r="28" fill="#ef4444" opacity="0.8"/>
+<path d="M645 340 Q670 285 695 340 Z" fill="#ef4444" opacity="0.8"/>
+<!-- connecting lines -->
+<line x1="220" y1="250" x2="340" y2="250" stroke="#4c1d95" stroke-width="2" opacity="0.4"/>
+<line x1="580" y1="250" x2="460" y2="250" stroke="#4c1d95" stroke-width="2" opacity="0.4"/>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Six glowing souls connected as one family network">
+<defs>
+  <radialGradient id="g" cx="50%" cy="50%" r="80%">
+    <stop offset="0%" stop-color="#0f172a"/>
+    <stop offset="100%" stop-color="#020617"/>
+  </radialGradient>
+</defs>
+<rect width="400" height="400" fill="url(#g)"/>
+<rect x="20" y="20" width="360" height="360" rx="24" fill="none" stroke="#a78bfa" stroke-width="4" opacity="0.3"/>
+
+<circle cx="200" cy="160" r="28" fill="#a78bfa"/>
+<circle cx="130" cy="230" r="24" fill="#22d3ee"/>
+<circle cx="270" cy="230" r="24" fill="#f59e0b"/>
+<circle cx="100" cy="300" r="20" fill="#22c55e"/>
+<circle cx="200" cy="320" r="20" fill="#ef4444"/>
+<circle cx="300" cy="300" r="20" fill="#818cf8"/>
+<line x1="200" y1="160" x2="130" y2="230" stroke="#4c1d95" stroke-width="3"/>
+<line x1="200" y1="160" x2="270" y2="230" stroke="#4c1d95" stroke-width="3"/>
+<line x1="130" y1="230" x2="100" y2="300" stroke="#4c1d95" stroke-width="3"/>
+<line x1="270" y1="230" x2="300" y2="300" stroke="#4c1d95" stroke-width="3"/>
+<line x1="130" y1="230" x2="200" y2="320" stroke="#4c1d95" stroke-width="3"/>
+<line x1="270" y1="230" x2="200" y2="320" stroke="#4c1d95" stroke-width="3"/>
+
+</svg>
