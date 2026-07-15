@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="SakSee Growth agent abstract profile">
+<defs>
+  <radialGradient id="g" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#312e81"/>
+    <stop offset="100%" stop-color="#0f0e2e"/>
+  </radialGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="400" height="400" fill="url(#g)"/>
+<mask id="round"><circle cx="200" cy="200" r="190" fill="white"/></mask><g mask="url(#round)">
+<g filter="url(#glow)">
+<path d="M80 200 Q200 110 320 200 Q200 290 80 200 Z" fill="#4338ca" stroke="#818cf8" stroke-width="4"/>
+<circle cx="200" cy="200" r="55" fill="#6366f1"/>
+<circle cx="200" cy="200" r="28" fill="#c7d2fe"/>
+<circle cx="200" cy="200" r="12" fill="#0f172a"/>
+<path d="M80 200 Q200 150 320 200" fill="none" stroke="#a5b4fc" stroke-width="2" opacity="0.5"/>
+</g>
+<circle cx="200" cy="370" r="140" fill="#1e1b4b" opacity="0.4"/>
+</g><circle cx="200" cy="200" r="190" fill="none" stroke="#818cf8" stroke-width="6"/>
+</svg>
