@@ -64,7 +64,83 @@
     --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
     --nav-h: 72px;
     --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    }
+
+    /* Progress bar */
+    #scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--cyan));
+    width: 0%;
+    z-index: 101;
+    transition: width 0.1s linear;
+    }
+
+    /* Back to top */
+    .back-to-top {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--transition), transform var(--transition), background var(--transition);
+    z-index: 99;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .back-to-top:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 3px; }
+
+    /* Trust badges strip */
+    .trust-strip {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+    }
+    .trust-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 48px;
+    }
+    .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text3);
+    font-size: 0.9rem;
+    font-weight: 500;
+    }
+    .trust-item .icon { font-size: 1.3rem; }
+
+    /* Active nav link */
+    .nav-links a.active {
+    color: var(--accent-bright);
+    background: var(--accent-soft);
+    }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    /* Service card equal height already enforced by flex; add image skeleton */
+    .skeleton {
+    background: linear-gradient(90deg, var(--surface2) 25%, var(--surface3) 50%, var(--surface2) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    }
+    @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+    }
+    img { transition: opacity 0.3s ease; }
+    img[loading] { opacity: 1; }
+    img.skeleton { opacity: 0; }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -680,6 +756,9 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <!-- NAVIGATION -->
   <nav id="topnav" aria-label="Primary">
     <a href="#" class="logo">House of <span>Sak</span></a>
@@ -1109,6 +1188,21 @@
   </section>
   </main>
 
+  <!-- Trust badges strip -->
+  <aside class="trust-strip" aria-label="Trust signals">
+    <div class="container trust-items">
+      <div class="trust-item"><span class="icon">🔒</span><span>No upfront for first clients</span></div>
+      <div class="trust-item"><span class="icon">✅</span><span>Verified public profiles</span></div>
+      <div class="trust-item"><span class="icon">⚡</span><span>Fast, transparent delivery</span></div>
+      <div class="trust-item"><span class="icon">🌱</span><span>Pay after delivery</span></div>
+    </div>
+  </aside>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -1175,10 +1269,10 @@
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           // Close mobile menu after navigation
-          const navLinks = document.getElementById('nav-links');
+          const navLinksContainer = document.getElementById('nav-links');
           const toggle = document.getElementById('menu-toggle');
-          if (navLinks.classList.contains('open')) {
-            navLinks.classList.remove('open');
+          if (navLinksContainer.classList.contains('open')) {
+            navLinksContainer.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
             toggle.setAttribute('aria-label', 'Open navigation menu');
           }
@@ -1188,9 +1282,9 @@
 
     // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+    const navLinksContainer = document.getElementById('nav-links');
     menuToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
+      const open = navLinksContainer.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(open));
       menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
@@ -1200,6 +1294,67 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
     }, { passive: true });
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }, { passive: true });
+
+    // Active nav section highlighting
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(section => observer.observe(section));
+
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Close mobile menu on outside click and Escape
+    document.addEventListener('click', (e) => {
+      if (navLinksContainer.classList.contains('open') && !nav.contains(e.target) && e.target !== menuToggle) {
+        navLinksContainer.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinksContainer.classList.contains('open')) {
+        navLinksContainer.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        menuToggle.focus();
+      }
+    });
+
+    // Image loading skeleton removal
+    document.querySelectorAll('img').forEach(img => {
+      img.classList.add('skeleton');
+      if (img.complete) {
+        img.classList.remove('skeleton');
+      } else {
+        img.addEventListener('load', () => img.classList.remove('skeleton'));
+        img.addEventListener('error', () => img.classList.remove('skeleton'));
+      }
+    });
 
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
