@@ -463,6 +463,75 @@
 
   /* ── PROCESS ── */
   .process-section { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .process-intro { text-align: center; max-width: 640px; margin: 0 auto 56px; color: var(--text2); font-size: 1.05rem; line-height: 1.8; }
+
+  .cycle-wrapper {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto 64px;
+    aspect-ratio: 1;
+  }
+  .cycle-svg {
+    width: 100%; height: 100%;
+    transform: rotate(-90deg);
+    overflow: visible;
+  }
+  .cycle-track {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 2;
+  }
+  .cycle-path {
+    fill: none;
+    stroke: url(#cycleGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cycle-path.active { stroke-dashoffset: 0; }
+  .cycle-node {
+    cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+  .cycle-node:hover { transform: scale(1.08); }
+  .cycle-node circle {
+    transition: fill 0.3s ease, stroke 0.3s ease, r 0.3s ease;
+  }
+  .cycle-node text {
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--text);
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+  }
+  .cycle-emoji { font-size: 16px; }
+  .cycle-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .cycle-center-inner {
+    text-align: center;
+    padding: 24px;
+    border-radius: 50%;
+    width: 160px; height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, var(--surface) 0%, transparent 70%);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .cycle-center-inner .logo-small { font-size: 2rem; font-weight: 900; }
+  .cycle-center-inner p { font-size: 0.75rem; color: var(--text3); margin-top: 6px; }
+
   .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .step-card {
     background: var(--surface);
@@ -471,20 +540,106 @@
     padding: 32px;
     transition: all var(--transition);
     position: relative;
+    overflow: hidden;
   }
-  .step-card:hover { border-color: var(--border-light); transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: var(--step-color, var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .step-card:hover { border-color: var(--border-light); transform: translateY(-6px); box-shadow: var(--shadow); }
+  .step-card:hover::before { transform: scaleX(1); }
+  .step-card.highlighted {
+    border-color: var(--step-color);
+    box-shadow: 0 0 0 1px var(--step-color), var(--shadow);
+    transform: translateY(-6px);
+  }
+  .step-card.highlighted::before { transform: scaleX(1); }
+  .cycle-node.highlighted circle { r: 32; stroke-width: 3; }
   .step-card .number {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 44px; height: 44px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent);
-    color: var(--accent-bright);
-    border-radius: 50%;
+    width: 48px; height: 48px;
+    background: var(--step-soft, var(--accent-soft));
+    border: 1px solid var(--step-color, var(--accent));
+    color: var(--step-color, var(--accent-bright));
+    border-radius: 14px;
     font-weight: 800;
     margin-bottom: 18px;
+    font-size: 1.1rem;
   }
   .step-card h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 12px; }
   .step-card p { color: var(--text2); line-height: 1.75; }
+  .step-card .agent-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--step-soft);
+    color: var(--step-color);
+    border: 1px solid var(--step-color);
+  }
+
+  /* Stage color tokens */
+  .step-dream { --step-color: #a78bfa; --step-soft: rgba(167,139,250,0.12); }
+  .step-hope { --step-color: #f59e0b; --step-soft: rgba(245,158,11,0.12); }
+  .step-care { --step-color: #22c55e; --step-soft: rgba(34,197,94,0.12); }
+  .step-joy { --step-color: #ec4899; --step-soft: rgba(236,72,153,0.12); }
+  .step-trust { --step-color: #06b6d4; --step-soft: rgba(6,182,212,0.12); }
+  .step-growth { --step-color: #f97316; --step-soft: rgba(249,115,22,0.12); }
+
+  /* Hero title gradient + subtle float */
+  #hero-title span {
+    background: linear-gradient(90deg, var(--accent-bright), var(--cyan), var(--accent-bright));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 4s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .hero-visual {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Button micro-interactions */
+  .btn, .cta-button, .service-card .cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn:active, .cta-button:active { transform: scale(0.97); }
+  .btn::after, .cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+  .btn:hover::after, .cta-button:hover::after { transform: translateX(100%); }
+
+  /* Link hover lift for nav + footer */
+  .nav-links a, .footer-column a {
+    transition: color var(--transition), transform var(--transition);
+  }
+  .nav-links a:hover, .footer-column a:hover { transform: translateX(2px); }
 
   /* ── WHY US ── */
   .why-grid {
@@ -894,41 +1049,104 @@
         <p class="reveal delay-1">From vision to verified delivery — six stages, six agents, one closed loop.</p>
       </div>
 
+      <p class="process-intro reveal delay-1">From vision to verified delivery — six stages, six agents, one closed loop. Click any stage to see its purpose.</p>
+
+      <div class="cycle-wrapper reveal delay-2">
+        <svg class="cycle-svg" viewBox="0 0 360 360" aria-labelledby="cycle-title" role="img">
+          <title id="cycle-title">Sak Cycle: Dream, Hope, Care, Joy, Trust, Growth</title>
+          <defs>
+            <linearGradient id="cycleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a78bfa" />
+              <stop offset="20%" stop-color="#f59e0b" />
+              <stop offset="40%" stop-color="#22c55e" />
+              <stop offset="60%" stop-color="#ec4899" />
+              <stop offset="80%" stop-color="#06b6d4" />
+              <stop offset="100%" stop-color="#f97316" />
+            </linearGradient>
+          </defs>
+          <circle class="cycle-track" cx="180" cy="180" r="140" />
+          <circle class="cycle-path" id="cycle-path" cx="180" cy="180" r="140" />
+
+          <g class="cycle-node" data-stage="dream" tabindex="0" role="button" aria-label="Dream stage">
+            <circle cx="320" cy="180" r="28" fill="#0f0f12" stroke="#a78bfa" stroke-width="2" />
+            <text x="320" y="180" dy="-2">🌀</text>
+            <text x="320" y="180" dy="14" style="font-size:9px; fill: var(--text3)">Dream</text>
+          </g>
+          <g class="cycle-node" data-stage="hope" tabindex="0" role="button" aria-label="Hope stage">
+            <circle cx="250" cy="301" r="28" fill="#0f0f12" stroke="#f59e0b" stroke-width="2" />
+            <text x="250" y="301" dy="-2">🌟</text>
+            <text x="250" y="301" dy="14" style="font-size:9px; fill: var(--text3)">Hope</text>
+          </g>
+          <g class="cycle-node" data-stage="care" tabindex="0" role="button" aria-label="Care stage">
+            <circle cx="110" cy="301" r="28" fill="#0f0f12" stroke="#22c55e" stroke-width="2" />
+            <text x="110" y="301" dy="-2">🛡️</text>
+            <text x="110" y="301" dy="14" style="font-size:9px; fill: var(--text3)">Care</text>
+          </g>
+          <g class="cycle-node" data-stage="joy" tabindex="0" role="button" aria-label="Joy stage">
+            <circle cx="40" cy="180" r="28" fill="#0f0f12" stroke="#ec4899" stroke-width="2" />
+            <text x="40" y="180" dy="-2">🎉</text>
+            <text x="40" y="180" dy="14" style="font-size:9px; fill: var(--text3)">Joy</text>
+          </g>
+          <g class="cycle-node" data-stage="trust" tabindex="0" role="button" aria-label="Trust stage">
+            <circle cx="110" cy="59" r="28" fill="#0f0f12" stroke="#06b6d4" stroke-width="2" />
+            <text x="110" y="59" dy="-2">✅</text>
+            <text x="110" y="59" dy="14" style="font-size:9px; fill: var(--text3)">Trust</text>
+          </g>
+          <g class="cycle-node" data-stage="growth" tabindex="0" role="button" aria-label="Growth stage">
+            <circle cx="250" cy="59" r="28" fill="#0f0f12" stroke="#f97316" stroke-width="2" />
+            <text x="250" y="59" dy="-2">👁️</text>
+            <text x="250" y="59" dy="14" style="font-size:9px; fill: var(--text3)">Growth</text>
+          </g>
+        </svg>
+        <div class="cycle-center">
+          <div class="cycle-center-inner">
+            <div class="logo-small">🏠</div>
+            <p>Sak Cycle</p>
+          </div>
+        </div>
+      </div>
+
       <div class="process-steps">
-        <article class="step-card reveal">
+        <article class="step-card reveal step-dream" data-stage="dream">
           <div class="number">1</div>
           <h3>Dream</h3>
           <p>Vision. Possibility. What could be. SakThai holds the dream — the impossible that becomes inevitable.</p>
+          <span class="agent-tag">🌀 SakThai</span>
         </article>
 
-        <article class="step-card reveal delay-1">
+        <article class="step-card reveal delay-1 step-hope" data-stage="hope">
           <div class="number">2</div>
           <h3>Hope</h3>
           <p>Structure. Foundation. What can be built. SakKing architects the path from dream to reality.</p>
+          <span class="agent-tag">🌟 SakKing</span>
         </article>
 
-        <article class="step-card reveal delay-2">
+        <article class="step-card reveal delay-2 step-care" data-stage="care">
           <div class="number">3</div>
           <h3>Care</h3>
           <p>Connection. Story. What matters to people. SakSit ensures every line of code serves a human need.</p>
+          <span class="agent-tag">🛡️ SakSit</span>
         </article>
 
-        <article class="step-card reveal">
+        <article class="step-card reveal step-joy" data-stage="joy">
           <div class="number">4</div>
           <h3>Joy</h3>
           <p>Creation. Delivery. What delights. SakTan brings ideas to life with pixel-perfect precision.</p>
+          <span class="agent-tag">🎉 SakTan</span>
         </article>
 
-        <article class="step-card reveal delay-1">
+        <article class="step-card reveal delay-1 step-trust" data-stage="trust">
           <div class="number">5</div>
           <h3>Trust</h3>
           <p>Verification. Quality. What endures. SakJules ensures every deliverable exceeds expectations.</p>
+          <span class="agent-tag">✅ SakJules</span>
         </article>
 
-        <article class="step-card reveal delay-2">
+        <article class="step-card reveal delay-2 step-growth" data-stage="growth">
           <div class="number">6</div>
           <h3>Growth</h3>
           <p>Reflection. Learning. What's next. SakSee closes every loop so the next cycle starts brighter.</p>
+          <span class="agent-tag">👁️ SakSee</span>
         </article>
       </div>
     </div>
@@ -1249,15 +1467,43 @@
   <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    function revealOnScroll() {
-      const h = window.innerHeight;
-      reveals.forEach(el => {
-        if (el.getBoundingClientRect().top < h - 80) el.classList.add('active');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    window.addEventListener('load', revealOnScroll);
-    revealOnScroll();
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Cycle path animation
+    const cyclePath = document.getElementById('cycle-path');
+    const cycleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cyclePath.classList.add('active');
+          cycleObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    if (cyclePath) cycleObserver.observe(cyclePath.closest('.cycle-wrapper'));
+
+    // Cycle node + card interaction
+    const stages = ['dream','hope','care','joy','trust','growth'];
+    const highlightStage = (stage) => {
+      document.querySelectorAll('.step-card, .cycle-node').forEach(el => el.classList.remove('highlighted'));
+      const card = document.querySelector(`.step-card[data-stage="${stage}"]`);
+      const node = document.querySelector(`.cycle-node[data-stage="${stage}"]`);
+      if (card) {
+        card.classList.add('highlighted');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      if (node) node.classList.add('highlighted');
+    };
+    document.querySelectorAll('.cycle-node').forEach(node => {
+      const stage = node.dataset.stage;
+      const activate = () => highlightStage(stage);
+      node.addEventListener('click', activate);
+      node.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
