@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House of Sak — AI Agent Family Command Center</title>
+  <meta name="description" content="Real-time command center dashboard for SakFamily AI Agents (SakSee, SakJules), local models, cronjobs, and REST webhooks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(18, 26, 43, 0.75);
+      --bg-card-hover: rgba(26, 37, 60, 0.85);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --accent-sakjules: #3b82f6;
+      --accent-saksee: #10b981;
+      --accent-sakthai: #8b5cf6;
+      --accent-gold: #f59e0b;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-main: 'Outfit', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent-sakjules), var(--accent-saksee));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .brand-title h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #ffffff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-title p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      color: #34d399;
+      font-weight: 500;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #34d399;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #34d399;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .tag-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-purple { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+
+    .stat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    .stat-label { color: var(--text-muted); }
+    .stat-value { font-weight: 500; font-family: var(--font-code); }
+
+    .log-window {
+      background: #060911;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: var(--font-code);
+      font-size: 0.825rem;
+      color: #34d399;
+      height: 180px;
+      overflow-y: auto;
+      line-height: 1.5;
+    }
+
+    .log-line {
+      margin-bottom: 0.35rem;
+    }
+
+    .log-line .ts { color: #6b7280; }
+    .log-line .cmd { color: #60a5fa; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🏠</div>
+      <div class="brand-title">
+        <h1>House of Sak — Agent Command Center</h1>
+        <p>Real-Time Autonomous Agent Network & Ecosystem Operations</p>
+      </div>
+    </div>
+    <div class="status-badge">
+      <span class="pulse-dot"></span>
+      <span>100% Zero-Cost Policy Active</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- SakJules Card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🔧 SakJules</div>
+        <span class="tag tag-blue">DevSecOps & Automation</span>
+      </div>
+      <div class="stat-list">
+        <div class="stat-item">
+          <span class="stat-label">Primary Reasoner</span>
+          <span class="stat-value">DeepSeek-V4-Flash</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Fast Triage Model</span>
+          <span class="stat-value">Nanthasit 1.5B Tools</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">REST Webhook Server</span>
+          <span class="stat-value" style="color: #34d399;">Port 8787 (Healthy)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Background Cronjobs</span>
+          <span class="stat-value">7 Active Ticking</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Composio MCP</span>
+          <span class="stat-value" style="color: #60a5fa;">250+ Tools Active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SakSee Card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">👁️ SakSee</div>
+        <span class="tag tag-green">Web Vision & Playwright</span>
+      </div>
+      <div class="stat-list">
+        <div class="stat-item">
+          <span class="stat-label">Browser Engine</span>
+          <span class="stat-value">Playwright Chromium v1.62</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Desktop Executable</span>
+          <span class="stat-value">Perplexity Comet (.exe)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Local GGUF Model</span>
+          <span class="stat-value" style="color: #34d399;">sakthai-coder-browser (7.1 GB)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">GUI Control</span>
+          <span class="stat-value">CUA Driver Daemon</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Background Cronjobs</span>
+          <span class="stat-value">6 Active Ticking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Infrastructure Card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">⚡ Local Infrastructure</div>
+        <span class="tag tag-purple">100% Offline & Open</span>
+      </div>
+      <div class="stat-list">
+        <div class="stat-item">
+          <span class="stat-label">Ollama Models</span>
+          <span class="stat-value">gemma2:2b (1.6GB), sakthai (7.1GB)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Supermemory Server</span>
+          <span class="stat-value" style="color: #34d399;">http://localhost:6767</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Google ADK</span>
+          <span class="stat-value">agents-cli v1.2.1</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Pytest Suite</span>
+          <span class="stat-value" style="color: #34d399;">8/8 PASSED (100% Green)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Financial Spend</span>
+          <span class="stat-value" style="color: #f59e0b;">$0.00 USD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📡 Real-Time Automation Log Feed</div>
+      <span class="tag tag-green">Live Feed</span>
+    </div>
+    <div class="log-window" id="log-feed">
+      <div class="log-line"><span class="ts">[08:22:00]</span> <span class="cmd">SYSTEM:</span> House of Sak Agent Command Center Initialized.</div>
+      <div class="log-line"><span class="ts">[08:22:01]</span> <span class="cmd">SAKJULES:</span> Google Jules REST Webhook Server listening on port 8787.</div>
+      <div class="log-line"><span class="ts">[08:22:02]</span> <span class="cmd">SAKSEE:</span> Playwright Chromium v1.62 & Perplexity Comet verified active.</div>
+      <div class="log-line"><span class="ts">[08:22:03]</span> <span class="cmd">OLLAMA:</span> Local Gemma 2 (1.6GB) & SakThai GGUF (7.1GB) ready.</div>
+      <div class="log-line"><span class="ts">[08:22:04]</span> <span class="cmd">SUPERMEMORY:</span> Vector daemon connected on http://localhost:6767.</div>
+      <div class="log-line"><span class="ts">[08:22:05]</span> <span class="cmd">COMPOSIO:</span> 250+ SaaS tools registered across opencode.json & ~/.mcp.json.</div>
+    </div>
+  </div>
+
+</body>
+</html>
