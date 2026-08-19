@@ -15,6 +15,7 @@ jobs:
           api-key: ${{ secrets.STEP_SECURITY_API_KEY }}
 
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@v7
 
       - name: Check HTML files are not corrupted
         run: |
